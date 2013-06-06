@@ -1,0 +1,146 @@
+div.wrap h2 {
+	display: inline;
+	float: left;
+	width: 50%;
+}
+
+div#poeditorTopLinks {
+	display: inline;
+	float: right;
+	margin: 10px 10px 0 0;
+	text-align: right;
+	width: 45%;
+}
+
+div.updated, div.error {
+	clear: both;
+}
+
+.refreshIcon {
+	height: 18px;
+	vertical-align: middle;
+}
+
+.addLanguage {
+	display: none;
+}
+
+div#assignFile {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	background: #FFF;
+	left: 50%;
+	margin-left: -32%;
+	padding: 2%;
+	position: absolute;
+	top: 10px;
+	width: 60%;
+}
+
+div#resetConfirm {
+	border: 1px solid #CCC;
+	border-radius: 3px;
+	background: #FFF;
+	display: none;
+	left: 50%;
+	margin-left: -16%;
+	padding: 2%;
+	position: absolute;
+	top: 5%;
+	width: 30%;
+}
+
+div#resetConfirm h4 {
+	margin: 0;
+}
+
+div#assignFile h2 {
+	float: none;
+	width: 100%;
+}
+
+div#assignFile table {
+	margin: 20px auto;
+}
+
+div#assignFile table td {
+	vertical-align: middle;
+}
+
+div#assignFile table td input.all-options {
+	width: 130px;
+}
+
+div#assignFile table td input.regular-text {
+	width: 358px;
+}
+
+div#assignFile table td input.error {
+	border: 1px solid #F00;
+}
+
+.addNewSelect {
+	display: none;
+}
+
+#assignFile {
+	display: none;
+}
+
+h2.poeditorTableTitle {
+	display: inline;
+	float: left;
+	padding: 30px 0 10px 0;
+}
+
+.poeditorTableExtraLink {
+	float: right;
+	margin: 30px 0 0 0 !important;
+}
+
+.addProject {
+	display: none;
+}
+
+.poeditor a {
+	text-decoration: underline;
+}
+
+.poeditor a.button-secondary {
+	text-decoration: none;
+}
+
+.poeditorWarningIcon {
+	vertical-align: middle;
+}
+
+table .poeditorWarningIcon {
+	vertical-align: bottom;
+}
+
+.poeditorVerticalAlign {
+	vertical-align: top !important;
+	border-right: 1px solid #CCC !important;
+}
+
+#poeditorProceedWithReset {
+	float: right;
+}
+
+.buttons-icon-refresh{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: text-top;
+	margin: 0 2px;
+	background: url('../_resources/img/refresh.png');
+}
+table.widefat .poeditorProjectOptions{
+	background: #fff;
+}
+table .poeditorToRight{
+	text-align: right;
+}
+table .poeditorPadLeft{
+	padding-left: 50px;
+}

@@ -1,0 +1,369 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: POEditor WP plugin\n"
+"Language: en\n"
+
+#. poeditor
+#: views/changeApiKey.php:8
+msgid "Change your POEditor API Key"
+msgstr "Change your POEditor API Key"
+
+#. poeditor
+#: views/changeApiKey.php:12
+#: views/index_nokey.php:14
+msgid "POEditor API KEY"
+msgstr "POEditor API KEY"
+
+#. poeditor
+#: views/changeApiKey.php:16
+#: views/index.php:8
+msgid "Change API Key"
+msgstr "Change API Key"
+
+#. poeditor
+#: views/index.php:9
+msgid "Reset plugin"
+msgstr "Reset plugin"
+
+#. poeditor
+#: views/index.php:17
+#: views/index.php:19
+msgid "Refresh online projects list"
+msgstr "Refresh online projects list"
+
+#. poeditor
+#: views/index.php:33
+#: views/index.php:134
+msgid "Project"
+msgstr "Project"
+
+#. poeditor
+#: views/index.php:36
+#: views/index.php:137
+msgid "Language"
+msgstr "Language"
+
+#. poeditor
+#: views/index.php:39
+#: views/index.php:140
+msgid "Progress"
+msgstr "Progress"
+
+#. poeditor
+#: views/index.php:42
+#: views/index.php:143
+msgid "Assigned file"
+msgstr "Assigned file"
+
+#. poeditor
+#: views/index.php:45
+#: views/index.php:146
+msgid "Actions"
+msgstr "Actions"
+
+#. poeditor
+#: views/index.php:67
+msgid "Assign file"
+msgstr "Assign file"
+
+#. poeditor
+#: views/index.php:76
+msgid "Import"
+msgstr "Import"
+
+#. poeditor
+#: views/index.php:77
+msgid "Export"
+msgstr "EXPORT"
+
+#. poeditor
+#: views/index.php:78
+msgid "Sync"
+msgstr "Sync"
+
+#. poeditor
+#: views/index.php:79
+msgid "Unassign file"
+msgstr "Unassign file"
+
+#. poeditor
+#: views/index.php:110
+msgid "Import all"
+msgstr "Import all"
+
+#. poeditor
+#: views/index.php:111
+msgid "Export all"
+msgstr "Export all"
+
+#. poeditor
+#: views/index.php:168
+#: views/index.php:170
+msgid "Rescan for language files"
+msgstr "Rescan for language files"
+
+#. poeditor
+#: views/index.php:179
+#: views/index.php:240
+#: views/index.php:274
+msgid "Location"
+msgstr "Location"
+
+#. poeditor
+#: views/index.php:182
+#: views/index.php:243
+#: views/index.php:277
+msgid "File"
+msgstr "File"
+
+#. poeditor
+#: views/index.php:185
+#: views/index.php:246
+msgid "Last changed"
+msgstr "Last changed"
+
+#. poeditor
+#: views/index.php:255
+#: views/index.php:372
+msgid "No language files found yet. Scan now"
+msgstr "No language files found yet. Scan now"
+
+#. poeditor
+#: views/index.php:263
+msgid "Assign a local file to a POEditor project language"
+msgstr "Assign a local file to a POEditor project language"
+
+#. poeditor
+#: views/index.php:304
+#: views/index.php:322
+#: views/index.php:340
+#: views/index.php:361
+msgid "Select"
+msgstr "Select"
+
+#. poeditor
+#: views/index.php:318
+msgid "Add new"
+msgstr "Add new"
+
+#. poeditor
+#: views/index.php:336
+#: views/index.php:357
+msgid "Add location manually"
+msgstr "Add location manually"
+
+#. poeditor
+#: views/index.php:346
+#: views/index.php:367
+msgid "Example"
+msgstr "Example"
+
+#. poeditor
+#: views/index.php:384
+msgid "Are you sure you want to reset the plugin?"
+msgstr "Are you sure you want to reset the plugin?"
+
+#. poeditor
+#: views/index.php:387
+msgid "This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s"
+msgstr "This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s"
+
+#. poeditor
+#: views/index.php:104
+#: views/index.php:376
+#: views/index.php:389
+msgid "Cancel"
+msgstr "Cancel"
+
+#. poeditor
+#: views/index.php:390
+msgid "Reset"
+msgstr "Reset"
+
+#. poeditor
+#: views/index_nokey.php:8
+msgid "No API key set"
+msgstr "No API key set"
+
+#. poeditor
+#: poeditor.php:430
+msgid "The language file %1$s for %2$s was successfully synced"
+msgstr "The language file %1$s for %2$s was successfully synced"
+
+#. poeditor
+#: poeditor.php:433
+msgid "The language file %1$s for %2$s was successfully uploaded to POEditor.com"
+msgstr "The language file %1$s for %2$s was successfully uploaded to POEditor.com"
+
+#. poeditor
+#: poeditor.php:437
+msgid "There was a problem with the request for %1$s: %2$s"
+msgstr "There was a problem with the request for %1$s: %2$s"
+
+#. poeditor
+#: poeditor.php:507
+msgid "The language file %1$s for %2$s was successfully imported from POEditor.com"
+msgstr "The language file %1$s for %2$s was successfully imported from POEditor.com"
+
+#. poeditor
+#: poeditor.php:317
+#: poeditor.php:514
+msgid "The %s folder is not writable. Please make it writable and try again"
+msgstr "The %s folder is not writable. Please make it writable and try again"
+
+#. poeditor
+#: poeditor.php:518
+#: poeditor.php:521
+msgid "The %s file cannot be overwritten. Please make it writable and try again"
+msgstr "The %s file cannot be overwritten. Please make it writable and try again"
+
+#. poeditor
+#: poeditor.php:525
+msgid "There was a problem importing the language file from POEditor.com"
+msgstr "There was a problem importing the language file from POEditor.com"
+
+#. poeditor
+#: views/getProjects.php:10
+msgid "Loading"
+msgstr "Loading"
+
+#. poeditor
+#: views/getProjects.php:13
+msgid "Retrieving online projects from POEditor.com. Please wait"
+msgstr "Retrieving online projects from POEditor.com. Please wait"
+
+#. poeditor
+#: views/index.php:91
+msgid "Add language to %s"
+msgstr "Add language to %s"
+
+#. poeditor
+#: views/index.php:103
+msgid "Add language"
+msgstr "Add language"
+
+#. poeditor
+#: views/index.php:110
+msgid "Do you really like to download all language files for %s from POEditor.com?"
+msgstr "Do you really like to download all language files for %s from POEditor.com?"
+
+#. poeditor
+#: views/index.php:111
+msgid "Do you really upload all terms for %s to POEditor.com?"
+msgstr "Do you really upload all terms for %s to POEditor.com?"
+
+#. poeditor
+#: views/index.php:112
+msgid "Do you really upload all definitions for %s POEditor.com?"
+msgstr "Do you really upload all definitions for %s POEditor.com?"
+
+#. poeditor
+#: views/index.php:112
+msgid "Sync all"
+msgstr "Sync all"
+
+#. poeditor
+#: views/index.php:379
+msgid "This folder is not writable"
+msgstr "This folder is not writable"
+
+#. poeditor
+#: views/index_nokey.php:10
+msgid "You must set your API key in order to use this plugin. You can get this key by going to %1$s on %2$s"
+msgstr "You must set your API key in order to use this plugin. You can get this key by going to %1$s on %2$s"
+
+#. poeditor
+#: views/index_nokey.php:10
+msgid "your account"
+msgstr "your account"
+
+#. poeditor
+#: views/index_nokey.php:18
+msgid "Set API Key"
+msgstr "Set API Key"
+
+#. poeditor
+#: views/scan.php:13
+msgid "Scanning for language files. Please wait"
+msgstr "Scanning for language files. Please wait"
+
+#. poeditor
+#: views/index.php:22
+msgid "POEditor translations"
+msgstr "POEditor translations"
+
+#. poeditor
+#: views/index.php:123
+#: views/index.php:126
+#: views/index.php:156
+#: views/index.php:159
+msgid "Create project"
+msgstr "Create project"
+
+#. poeditor
+#: views/index.php:166
+msgid "Local language files"
+msgstr "Local language files"
+
+#. poeditor
+#: views/index.php:154
+msgid "Found no projects in your POEditor.com account."
+msgstr "Found no projects in your POEditor.com account."
+
+#. poeditor
+#: poeditor.php:104
+msgid "The API Key was succesfully changed"
+msgstr "The API Key was succesfully changed"
+
+#. poeditor
+#: poeditor.php:119
+#: poeditor.php:132
+#: poeditor.php:208
+#: poeditor.php:240
+msgid "The API Key you set is invalid. Please try again"
+msgstr "The API Key you set is invalid. Please try again"
+
+#. poeditor
+#: poeditor.php:141
+msgid "The language was successfully added"
+msgstr "The language was successfully added"
+
+#. poeditor
+#: poeditor.php:215
+msgid "Please set the name of the project"
+msgstr "Please set the name of the project"
+
+#. poeditor
+#: poeditor.php:222
+msgid "Project creation failed: %s"
+msgstr "Project creation failed: %s"
+
+#. poeditor
+#: poeditor.php:320
+msgid "The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files"
+msgstr "The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files"
+
+#. poeditor
+#: poeditor.php:636
+msgid "The plugin has been reset successfully"
+msgstr "The plugin has been reset successfully"
+
+#. poeditor
+#: views/index.php:379
+msgid "The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)"
+msgstr "The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)"
+
+#. poeditor
+#: views/index.php:284
+msgid "Search for location"
+msgstr "Search for location"
+
+#. poeditor
+#: views/index.php:285
+msgid "Search for file name"
+msgstr "Search for file name"
+
