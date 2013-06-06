@@ -27,7 +27,6 @@
 
  			//load textdomain
  			load_plugin_textdomain('poeditor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/');
-			//load_textdomain('poeditor', trailingslashit( WP_PLUGIN_DIR . "/" .dirname( plugin_basename( __FILE__ ) ) . '/languages/' ) . "poeditor-de_DE.mo" );
  			
  			//get the api key
  			$this->apiKey = get_option('poeditor_apikey', false);
