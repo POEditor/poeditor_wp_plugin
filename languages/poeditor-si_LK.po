@@ -1,0 +1,306 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: POEditor.com\n"
+"Project-Id-Version: Wordpress POEditor Plugin\n"
+"Language: ta\n"
+
+#: views/changeApiKey.php:8
+msgid "Change your POEditor API Key"
+msgstr "பி.ஓ.எடிட்டரின்  பயன்பாட்டு நிரலாக்க இடைமுக விசையை மாற்றுக"
+
+#: views/changeApiKey.php:12
+#: views/index_nokey.php:14
+msgid "POEditor API KEY"
+msgstr "பி.ஓ.எடிட்டரின்  பயன்பாட்டு நிரலாக்க இடைமுக விசை"
+
+#: views/changeApiKey.php:16
+#: views/index.php:8
+msgid "Change API Key"
+msgstr "பி.ஓ.எடிட்டரின்  பயன்பாட்டு நிரலாக்க இடைமுகத்தின் விசை"
+
+#: views/index.php:9
+msgid "Reset plugin"
+msgstr "மீளமை சொருகி"
+
+#: views/index.php:17
+#: views/index.php:19
+msgid "Refresh online projects list"
+msgstr "நேரடி \tசெயற்றிட்ட நிரலைப் புதுப்பிக்க"
+
+#: views/index.php:33
+#: views/index.php:134
+msgid "Project"
+msgstr "செயற்றிட்டம்"
+
+#: views/index.php:36
+#: views/index.php:137
+msgid "Language"
+msgstr "மொழி"
+
+#: views/index.php:39
+#: views/index.php:140
+msgid "Progress"
+msgstr "முன்னேற்றம்"
+
+#: views/index.php:42
+#: views/index.php:143
+msgid "Assigned file"
+msgstr "பணி ஒதுக்கப்பட்ட கோப்பு"
+
+#: views/index.php:45
+#: views/index.php:146
+msgid "Actions"
+msgstr "நடவடிக்கைகள்"
+
+#: views/index.php:67
+msgid "Assign file"
+msgstr "கோப்புக்களுக்கு பணிகளை ஒதுக்கவும்"
+
+#: views/index.php:76
+msgid "Import"
+msgstr "இறக்குமதி"
+
+#: views/index.php:77
+msgid "Export"
+msgstr "ஏற்றுமதி"
+
+#: views/index.php:78
+msgid "Sync"
+msgstr "ஒத்திசைவு"
+
+#: views/index.php:79
+msgid "Unassign file"
+msgstr "கோப்புகளின் பணிகளை மீளப் பெறுக"
+
+#: views/index.php:110
+msgid "Import all"
+msgstr "அனைத்தையும் இறக்குமதி செய்யவும்"
+
+#: views/index.php:111
+msgid "Export all"
+msgstr "அனைத்தையும் ஏற்றுமதி செய்யவும்"
+
+#: views/index.php:168
+#: views/index.php:170
+msgid "Rescan for language files"
+msgstr "மொழிக்கான கோப்புகளை மீள  சோதிக்கவும்"
+
+#: views/index.php:179
+#: views/index.php:240
+#: views/index.php:274
+msgid "Location"
+msgstr "அமைவிடம்"
+
+#: views/index.php:182
+#: views/index.php:243
+#: views/index.php:277
+msgid "File"
+msgstr "கோப்பு"
+
+#: views/index.php:185
+#: views/index.php:246
+msgid "Last changed"
+msgstr "இறுதியாக மாற்றப்பட்டது"
+
+#: views/index.php:255
+#: views/index.php:372
+msgid "No language files found yet. Scan now"
+msgstr "எந்தவொரு மொழி கோப்பும் இன்னமும் கண்டறியப்படவில்லை. \tமீள சோதிக்கவும்"
+
+#: views/index.php:263
+msgid "Assign a local file to a POEditor project language"
+msgstr "பி.ஓ.எடிட்டரின் செயற்றிட்ட மொழிக்கு  உள்ளூர் கோப்பொன்றை ஒதுக்கவும்"
+
+#: views/index.php:304
+#: views/index.php:322
+#: views/index.php:340
+#: views/index.php:361
+msgid "Select"
+msgstr "தெரிக"
+
+#: views/index.php:318
+msgid "Add new"
+msgstr "புதிதாக சேர்க்கவும்"
+
+#: views/index.php:336
+#: views/index.php:357
+msgid "Add location manually"
+msgstr "கைமுறையாக அமைவிடத்தை சேர்க்கவும்"
+
+#: views/index.php:346
+#: views/index.php:367
+msgid "Example"
+msgstr "உதாரணம்"
+
+#: views/index.php:384
+msgid "Are you sure you want to reset the plugin?"
+msgstr "நீங்கள் சொருகியை மீளமைக்க விரும்புகிறீர்களா?"
+
+#: views/index.php:387
+msgid "This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s"
+msgstr "இது உங்கள் அனைத்து  உள்ளூர் கோப்பு பணிகளையும் நீக்குவதுடன் உங்கள் %s கணக்கில் இருந்து  வேர்ட்பிரஸ் நிறுவலை அகற்றி விடும்"
+
+#: views/index.php:104
+#: views/index.php:376
+#: views/index.php:389
+msgid "Cancel"
+msgstr "ரத்துசெய்"
+
+#: views/index.php:390
+msgid "Reset"
+msgstr "\tமீளமை"
+
+#: views/index_nokey.php:8
+msgid "No API key set"
+msgstr "பயன்பாட்டு நிரலாக்க இடைமுக விசை பலகை காணப்படவில்லை"
+
+#: poeditor.php:430
+msgid "The language file %1$s for %2$s was successfully synced"
+msgstr "%2$s விற்கான மொழிக் கோப்பு %1$s ஆனது வெற்றிகரமாக ஒத்திசைக்கப்பட்டது"
+
+#: poeditor.php:433
+msgid "The language file %1$s for %2$s was successfully uploaded to POEditor.com"
+msgstr "%2$s விற்கான மொழிக் கோப்பு %1$s ஆனது \t\n"
+"பி.ஓ.எடிட்டர்.கொம் இற்கு வெற்றிகரமாக\n"
+"பதிவேற்றப்பட்டது"
+
+#: poeditor.php:437
+msgid "There was a problem with the request for %1$s: %2$s"
+msgstr "%1$s:%2$s க்கான கோரிக்கையில் ஒரு சிக்கல் ஏற்றப்பட்டுள்ளது"
+
+#: poeditor.php:507
+msgid "The language file %1$s for %2$s was successfully imported from POEditor.com"
+msgstr "%2$s விற்கான மொழிக் கோப்பு %1$s ஆனது \t\n"
+"பி.ஓ.எடிட்டர்.கொம் இலிருந்து வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளது"
+
+#: poeditor.php:317
+#: poeditor.php:514
+msgid "The %s folder is not writable. Please make it writable and try again"
+msgstr "%s கோப்பில் எழுதமுடியாது. அதை எழுதக்கூடியதாக மாற்றி, மீண்டும் முயற்சிக்கவும்"
+
+#: poeditor.php:518
+#: poeditor.php:521
+msgid "The %s file cannot be overwritten. Please make it writable and try again"
+msgstr "%s கோப்பில் மேலெழுத முடியாது. அதை எழுதக்கூடியதாக மாற்றி, மீண்டும் முயற்சிக்கவும்"
+
+#: poeditor.php:525
+msgid "There was a problem importing the language file from POEditor.com"
+msgstr "பி.ஓ.எடிட்டர்.கொம் இலிருந்து மொழிக் கோப்பை  இறக்குமதி செய்வதில் ஒரு சிக்கல் ஏற்றப்பட்டுள்ளது"
+
+#: views/getProjects.php:10
+msgid "Loading"
+msgstr "சுமையேற்றம்"
+
+#: views/getProjects.php:13
+msgid "Retrieving online projects from POEditor.com. Please wait"
+msgstr "பி.ஓ.எடிட்டர்.கொம் இலிருந்து ஆன்லைன் செயற்றிட்டங்கள் மீட்டெடுக்கப்படுகிறது, தயவு செய்து காத்திருக்கவும்"
+
+#: views/index.php:91
+msgid "Add language to %s"
+msgstr "%s இற்கு மொழியை சேர்க்க"
+
+#: views/index.php:103
+msgid "Add language"
+msgstr "மொழியை சேர்க்க"
+
+#: views/index.php:110
+msgid "Do you really like to download all language files for %s from POEditor.com?"
+msgstr "நீங்கள் உண்மையில் %s இற்கான அனைத்து மொழிக் கோப்புக்களையும் பி.ஓ.எடிட்டர்.கொம் இலிருந்து பதிவிறக்கம் செய்ய விரும்புகிறீர்களா?"
+
+#: views/index.php:111
+msgid "Do you really upload all terms for %s to POEditor.com?"
+msgstr "நீங்கள் உண்மையில் %s பி.ஓ.எடிட்டரிற்கான அனைத்து விதிமுறைகளையும் பதிவேற்றி உள்ளீர்களா ?"
+
+#: views/index.php:112
+msgid "Do you really upload all definitions for %s POEditor.com?"
+msgstr "நீங்கள் உண்மையில் %s பி.ஓ.எடிட்டரிற்கான அனைத்து வரையறைகளையும் பதிவேற்றி உள்ளீர்களா ?"
+
+#: views/index.php:112
+msgid "Sync all"
+msgstr "அனைத்தையும் ஒத்திசை"
+
+#: views/index.php:379
+msgid "This folder is not writable"
+msgstr "இக்கோப்பில் எழுதமுடியாது"
+
+#: views/index_nokey.php:10
+msgid "You must set your API key in order to use this plugin. You can get this key by going to %1$s on %2$s"
+msgstr "இந்த கூடுதல் இணைப்பை பயன்படுத்த முதலில் உங்கள் பயன்பாட்டு நிரலாக்க இடைமுகத்தின் விசையை அமைக்க வேண்டும். நீங்கள் இதனை  %2$s இல் உள்ள  %1$s இற்கு செல்வதன் மூலம் பெறமுடியும்"
+
+#: views/index_nokey.php:10
+msgid "your account"
+msgstr "உங்கள் கணக்கு"
+
+#: views/index_nokey.php:18
+msgid "Set API Key"
+msgstr "பயன்பாட்டு நிரலாக்க இடைமுகத்தின் விசையை தொகு"
+
+#: views/scan.php:13
+msgid "Scanning for language files. Please wait"
+msgstr "மொழி கோப்புகளுக்காக பரிசோதிக்கின்றன. தயவுசெய்து காத்திருக்கவும்"
+
+#: views/index.php:22
+msgid "POEditor translations"
+msgstr "\tபி.ஓ.எடிட்டரின் மொழிபெயர்ப்பு"
+
+#: views/index.php:123
+#: views/index.php:126
+#: views/index.php:156
+#: views/index.php:159
+msgid "Create project"
+msgstr "\tசெயற்திட்டப்பணியை உருவாக்கு"
+
+#: views/index.php:166
+msgid "Local language files"
+msgstr "உள்ளூர் மொழி கோப்புகள்"
+
+#: views/index.php:154
+msgid "Found no projects in your POEditor.com account."
+msgstr "உங்கள் பி.ஓ.எடிட்டர்.கொம் கணக்கில் திட்டங்கள் எதுவும் காணப்படவில்லை"
+
+#: poeditor.php:104
+msgid "The API Key was succesfully changed"
+msgstr "பயன்பாட்டு நிரலாக்க இடைமுக விசை வெற்றிகரமாக மாற்றப்பட்டது"
+
+#: poeditor.php:119
+#: poeditor.php:132
+#: poeditor.php:208
+#: poeditor.php:240
+msgid "The API Key you set is invalid. Please try again"
+msgstr "நீங்கள் சரிசெய்த பயன்பாட்டு நிரலாக்க இடைமுக விசை செல்லுபடியாகாதது. தயவுசெய்து மீண்டும் முயற்சிக்கவும்"
+
+#: poeditor.php:141
+msgid "The language was successfully added"
+msgstr "மொழி வெற்றிகரமாக சேர்க்கப்பட்டது"
+
+#: poeditor.php:215
+msgid "Please set the name of the project"
+msgstr "செயற்திட்டத்திற்கு ஒரு பெயரை வைக்கவும்"
+
+#: poeditor.php:222
+msgid "Project creation failed: %s"
+msgstr "\t\tசெயற்திட்டப்பணி உருவாக்கம் தோல்வியடைந்தது: %s"
+
+#: poeditor.php:320
+msgid "The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files"
+msgstr "கோப்பை உருவாக்க முடியவில்லை. அதை எழுதக்கூடியதாக மாற்றி, உங்கள் புரவலன் கட்டமைப்பு, நீங்கள் கோப்புகளை எழுத அனுமதிக்கும் என்பதை உறுதி செய்து"
+
+#: poeditor.php:636
+msgid "The plugin has been reset successfully"
+msgstr "சொருகி வெற்றிகரமாக மீளமைப்பு"
+
+#: views/index.php:379
+msgid "The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)"
+msgstr "கோப்புறை அல்லது கோப்பில் எழுதமுடியாது. (எனவே எம்மால் பி.ஓ.எடிட்டர்.கொம் இலிருந்து தகவல்களை பெற்று கோப்புகளை மேம்படுத்த முடியவில்லை)"
+
+#: views/index.php:284
+msgid "Search for location"
+msgstr "அமைவிடம் தேடல்"
+
+#: views/index.php:285
+msgid "Search for file name"
+msgstr "கோப்பின் பெயர் தேடல்"
+
