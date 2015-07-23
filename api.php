@@ -69,7 +69,7 @@
 		}
 
 		function upload($projectId, $path, $language, $overwrite, $updating) {
-			$upload = $this->_makeAPIRequest('upload', array('id' => $projectId, 'language' => $language, 'file' => '@'.$path, 'updating' => $updating, 'overwrite' => $overwrite));
+			$upload = $this->_makeAPIRequest('upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite));
 
 			return $upload;
 		}

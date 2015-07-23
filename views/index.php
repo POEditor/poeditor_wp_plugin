@@ -73,10 +73,10 @@
 								<?php
 									if( isset($assingments[$key]) ) {
 										?>
-										<a href="<?php echo POEDITOR_PATH;?>&amp;do=import&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>"><?php _e('Import', 'poeditor'); ?></a> | 
-										<a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>&amp;type=export"><?php _e('Export', 'poeditor'); ?></a> |
-										<a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>&amp;type=sync"><?php _e('Sync', 'poeditor'); ?></a> | 
-										<a href="<?php echo POEDITOR_PATH;?>&amp;do=unassignFile&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>"><?php _e('Unassign file', 'poeditor'); ?></a>
+										<a href="<?php echo POEDITOR_PATH;?>&amp;do=import&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>" title="<?php _e('Import .po and .mo files from POEditor', 'poeditor'); ?>"><?php _e('Import', 'poeditor'); ?></a> | 
+										<a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>&amp;type=export" title="<?php _e('Export terms to POEditor', 'poeditor'); ?>"><?php _e('Export', 'poeditor'); ?></a> |
+										<a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>&amp;type=sync" title="<?php _e('Export terms and translations to POEditor, overwriting exiting translations', 'poeditor'); ?>"><?php _e('Sync', 'poeditor'); ?></a> | 
+										<a href="<?php echo POEDITOR_PATH;?>&amp;do=unassignFile&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>" title=""><?php _e('Unassign file', 'poeditor'); ?></a>
 										<?php
 									}
 								?>
@@ -107,9 +107,9 @@
 								<td ></td>
 								<td ></td>
 								<td class="poeditorToRight">
-								<a onclick='return confirm("<?php printf(__('Do you really like to download all language files for %s from POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=import_all&amp;projectId=<?php echo $project['id'];?>"><?php _e('Import all', 'poeditor'); ?></a> | 
-								<a onclick='return confirm("<?php printf(__('Do you really upload all terms for %s to POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=export_all&amp;projectId=<?php echo $project['id'];?>&amp;type=export"><?php _e('Export all', 'poeditor'); ?></a> |
-								<a onclick='return confirm("<?php printf(__('Do you really upload all definitions for %s POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=export_all&amp;projectId=<?php echo $project['id'];?>&amp;type=sync"><?php _e('Sync all', 'poeditor'); ?></a>
+								<a onclick='return confirm("<?php printf(__('Do you really like to download all language files for %s from POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=import_all&amp;projectId=<?php echo $project['id'];?>" title="<?php _e('Import .po and .mo files from POEditor for all languages', 'poeditor'); ?>"><?php _e('Import all', 'poeditor'); ?></a> | 
+								<a onclick='return confirm("<?php printf(__('Do you really upload all terms for %s to POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=export_all&amp;projectId=<?php echo $project['id'];?>&amp;type=export" title="<?php _e('Export terms to POEditor from all language files', 'poeditor'); ?>"><?php _e('Export all', 'poeditor'); ?></a> |
+								<a onclick='return confirm("<?php printf(__('Do you really upload all definitions for %s POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=export_all&amp;projectId=<?php echo $project['id'];?>&amp;type=sync" title="<?php _e('Export terms and translations to POEditor from all language files, overwriting exiting translations', 'poeditor'); ?>"><?php _e('Sync all', 'poeditor'); ?></a>
 								</td>
 							</tr>
 							<tr>

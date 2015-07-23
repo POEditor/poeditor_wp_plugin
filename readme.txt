@@ -3,8 +3,8 @@ Contributors:
 Donate link: 
 Tags: localization, translate, api
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 0.9.6
+Tested up to: 4.2.2
+Stable tag: 0.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

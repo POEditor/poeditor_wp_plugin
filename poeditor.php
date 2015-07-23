@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.6
+	Version: 0.9.7
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
