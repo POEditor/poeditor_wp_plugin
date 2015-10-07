@@ -5,296 +5,295 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: POEditor.com\n"
 "Project-Id-Version: Wordpress POEditor Plugin\n"
-"Language: ro\n"
+"Language: pt-br\n"
 
 #: views/changeApiKey.php:8
 msgid "Change your POEditor API Key"
-msgstr "Schimbați cheia pentru POEditor API"
+msgstr "Mudar sua chave API do POEditor"
 
 #: views/changeApiKey.php:12 views/index_nokey.php:14
 msgid "POEditor API KEY"
-msgstr "CHEIA pentru POEditor API"
+msgstr "CHAVE API DO POEditor"
 
 #: views/changeApiKey.php:16 views/index.php:8
 msgid "Change API Key"
-msgstr "Schimbați cheia pentru API"
+msgstr "Alterar chave API"
 
 #: views/index.php:9
 msgid "Reset plugin"
-msgstr "Resetați plugin"
+msgstr "Reinicializar plugin"
 
 #: views/index.php:17 views/index.php:19
 msgid "Refresh online projects list"
-msgstr "Reîmprospătați lista de proiecte online"
+msgstr "Atualizar lista de projetos online"
 
 #: views/index.php:33 views/index.php:137
 msgid "Project"
-msgstr "Proiect"
+msgstr "Projeto"
 
 #: views/index.php:36 views/index.php:140
 msgid "Language"
-msgstr "Limbă"
+msgstr "Idioma"
 
 #: views/index.php:39 views/index.php:143
 msgid "Progress"
-msgstr "Progres"
+msgstr "Progresso"
 
 #: views/index.php:42 views/index.php:146
 msgid "Assigned file"
-msgstr "Fișier asignat"
+msgstr "Arquivo atribuído"
 
 #: views/index.php:45 views/index.php:149
 msgid "Actions"
-msgstr "Acțiuni"
+msgstr "Ações"
 
 #: views/index.php:67
 msgid "Assign file"
-msgstr "Asignați fișier"
+msgstr "Atribuir arquivo"
 
 #: views/index.php:76
 msgid "Import"
-msgstr "Import"
+msgstr "Importar"
 
 #: views/index.php:77
 msgid "Export"
-msgstr "Export"
+msgstr "Exportar"
 
 #: views/index.php:78
 msgid "Sync"
-msgstr "Sincronizați"
+msgstr "Sincronização"
 
 #: views/index.php:79
 msgid "Unassign file"
-msgstr "Scoateți asignarea"
+msgstr "Cancelar a atribuição de arquivo"
 
 #: views/index.php:110
 msgid "Import all"
-msgstr "Importați tot"
+msgstr "Importar todos"
 
 #: views/index.php:111
 msgid "Export all"
-msgstr "Exportați tot"
+msgstr "Exportar todos"
 
 #: views/index.php:171 views/index.php:173
 msgid "Rescan for language files"
-msgstr "Scanați din nou dupa fișiere de limbă"
+msgstr "Examine novamente os arquivos de idioma"
 
 #: views/index.php:182 views/index.php:243 views/index.php:277
-#, fuzzy
 msgid "Location"
-msgstr "Locație"
+msgstr "Localização"
 
 #: views/index.php:185 views/index.php:246 views/index.php:280
 msgid "File"
-msgstr "Fișier"
+msgstr "Arquivo"
 
 #: views/index.php:188 views/index.php:249
 msgid "Last changed"
-msgstr "Modificat"
+msgstr "Última alteração"
 
 #: views/index.php:258 views/index.php:375
 msgid "No language files found yet. Scan now"
-msgstr "Nici un fișier de limbă gasit. Scanați acum"
+msgstr "Nenhum arquivo de idioma encontrado ainda. Escaneie agora"
 
 #: views/index.php:266
 msgid "Assign a local file to a POEditor project language"
-msgstr "Asignați un fișier local la o limbă din POEditor"
+msgstr "Atribuir um arquivo local para um idioma de projeto POEditor"
 
 #: views/index.php:307 views/index.php:325 views/index.php:343
 #: views/index.php:364
 msgid "Select"
-msgstr "Selectați"
+msgstr "Selecionar"
 
 #: views/index.php:321
 msgid "Add new"
-msgstr "Adăugați"
+msgstr "Adicionar novo"
 
 #: views/index.php:339 views/index.php:360
 msgid "Add location manually"
-msgstr "Adăugați locație manual"
+msgstr "Adicionar local manualmente"
 
 #: views/index.php:349 views/index.php:370
 msgid "Example"
-msgstr "Exemplu"
+msgstr "Exemplo"
 
 #: views/index.php:387
 msgid "Are you sure you want to reset the plugin?"
-msgstr "Sunteți sigur că vreți să resetați plugin-ul?"
+msgstr "Tem certeza de que deseja reinicializar o plugin?"
 
 #: views/index.php:390
 msgid "This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s"
-msgstr "Această acțiune vă va șterge toate asignările pentru fișierele locale și legaturile cu contul din %s"
+msgstr "Isto irá apagar todas as atribuições de seu arquivo local e vai separar sua instalação do Wordpress a partir de sua conta no %s"
 
 #: views/index.php:104 views/index.php:379 views/index.php:392
 msgid "Cancel"
-msgstr "Anulați"
+msgstr "Cancelar"
 
 #: views/index.php:393
 msgid "Reset"
-msgstr "Resetați"
+msgstr "Resetar"
 
 #: views/index_nokey.php:8
 msgid "No API key set"
-msgstr "Nici o cheie API setată"
+msgstr "Nenhum conjunto de chave API"
 
 #: poeditor.php:432
 msgid "The language file %1$s for %2$s was successfully synced"
-msgstr "Fișierul de limbă %1$s pentru %2$s a fost sincronizat cu succes"
+msgstr "O arquivo do idioma %1$s por %2$s foi sincronizada com sucesso"
 
 #: poeditor.php:435
 msgid "The language file %1$s for %2$s was successfully uploaded to POEditor.com"
-msgstr "Fișierul de limbă %1$s pentru %2$s a fost urcat cu succes pe POEditor.com"
+msgstr "O arquivo do idioma %1$s por %2$s foi enviado com sucesso para POEditor.com"
 
 #: poeditor.php:439
 msgid "There was a problem with the request for %1$s: %2$s"
-msgstr "A fost o problemă la cererea pentru %1$s: %2$s"
+msgstr "Houve um problema com o pedido de %1$s: %2$s"
 
 #: poeditor.php:509
 msgid "The language file %1$s for %2$s was successfully imported from POEditor.com"
-msgstr "Fișierul de limbă %1$s pentru %2$s a fost importat cu succes din POEditor.com"
+msgstr "O arquivo do idioma %1$s por %2$s foi importado com sucesso a partir do POEditor.com"
 
 #: poeditor.php:319 poeditor.php:516
 msgid "The %s folder is not writable. Please make it writable and try again"
-msgstr "Directorul %s nu are drepturi de scriere. Acordați drepturi de scriere și incercați din nou"
+msgstr "A pasta %s não é gravável. Por favor torná-lo gravável e tente novamente"
 
 #: poeditor.php:520 poeditor.php:523
 msgid "The %s file cannot be overwritten. Please make it writable and try again"
-msgstr "Fișierul %s nu poate fi suprascris. Acordați drepturi de scriere și incercați din nou"
+msgstr "O arquivo %s não pode ser substituído. Por favor torná-lo gravável e tente novamente"
 
 #: poeditor.php:527
 msgid "There was a problem importing the language file from POEditor.com"
-msgstr "A fost o problemă la importul fișierului de limbă din POEditor"
+msgstr "Houve um problema ao importar o arquivo de idioma do POEditor.com"
 
 #: views/getProjects.php:10
 msgid "Loading"
-msgstr "Se încarcă"
+msgstr "Carregando"
 
 #: views/getProjects.php:13
 msgid "Retrieving online projects from POEditor.com. Please wait"
-msgstr "Se citesc proiectele din POEditor.com. Vă rog așteptați"
+msgstr "Recuperando projetos online a partir do POEditor.com. por favor, aguarde"
 
 #: views/index.php:91
 msgid "Add language to %s"
-msgstr "Adăugați o limbă la %s"
+msgstr "Adicionar idioma para %s"
 
 #: views/index.php:103
 msgid "Add language"
-msgstr "Adăugați o limbă"
+msgstr "Adicionar idioma"
 
 #: views/index.php:110
 msgid "Do you really like to download all language files for %s from POEditor.com?"
-msgstr "Chiar doriți să descărcați toate fișierele de limbă pentru %s din POEditor.com?"
+msgstr "Você realmente gosta de baixar todos os arquivos de idioma para %s de POEditor.com?"
 
 #: views/index.php:111
 msgid "Do you really upload all terms for %s to POEditor.com?"
-msgstr "Chiar vreți să încărcați toți termenii pentru %s în POEditor.com?"
+msgstr "Você realmente deseja fazer upload de todos os termos de %s para POEditor.com?"
 
 #: views/index.php:112
 msgid "Do you really upload all definitions for %s POEditor.com?"
-msgstr "Chiar vreți să încărcați toate definițiile pentru %s în POEditor.com?"
+msgstr "Você realmente deseja fazer upload de todas as definições para %s POEditor.com?"
 
 #: views/index.php:112
 msgid "Sync all"
-msgstr "Sincronizați tot"
+msgstr "Sincronizar todos"
 
 #: views/index.php:382
 msgid "This folder is not writable"
-msgstr "Acest director nu are drepturi de scriere"
+msgstr "Esta pasta não é gravável"
 
 #: views/index_nokey.php:10
 msgid "You must set your API key in order to use this plugin. You can get this key by going to %1$s on %2$s"
-msgstr "Trebuie să setați cheia API pentru a folosi acest plugin. Puteți primi aceasta cheie dacă mergeți la %1$s în %2$s"
+msgstr "Você deve definir a sua chave API para utilizar este plugin. Você pode obter essa chave indo para %1$s em %2$s"
 
 #: views/index_nokey.php:10
 msgid "your account"
-msgstr "contul dvs"
+msgstr "sua conta"
 
 #: views/index_nokey.php:18
 msgid "Set API Key"
-msgstr "Setați cheia API"
+msgstr "Definir a chave API"
 
 #: views/scan.php:13
 msgid "Scanning for language files. Please wait"
-msgstr "Se scanează după fișiere de limbă. Vă rugăm așteptați"
+msgstr "Digitalização de arquivos de idioma. Por favor aguarde"
 
 #: views/index.php:22
 msgid "POEditor translations"
-msgstr "Traduceri POEditor"
+msgstr "Traduções POEditor"
 
 #: views/index.php:126 views/index.php:129 views/index.php:159
 #: views/index.php:162
 msgid "Create project"
-msgstr "Creați proiect nou"
+msgstr "Criar projeto"
 
 #: views/index.php:169
 msgid "Local language files"
-msgstr "Fișiere de limbă locale"
+msgstr "Arquivos de idioma local"
 
 #: views/index.php:157
 msgid "Found no projects in your POEditor.com account."
-msgstr "Nu s-au găsit proiecte in contul de pe POEditor.com."
+msgstr "Não foi encontrado nenhum projeto na sua conta do POEditor.com."
 
 #: poeditor.php:106
 msgid "The API Key was succesfully changed"
-msgstr "Cheia API a fost schimbată cu succes"
+msgstr "A chave API foi alterado com sucesso"
 
 #: poeditor.php:121 poeditor.php:134 poeditor.php:210 poeditor.php:242
 msgid "The API Key you set is invalid. Please try again"
-msgstr "Cheia API setată este invalidă. Încercați din nou"
+msgstr "A chave API que você definiu é inválido. Por favor, tente novamente"
 
 #: poeditor.php:143
 msgid "The language was successfully added"
-msgstr "Limba a fost adăugată cu succes"
+msgstr "O idioma foi adicionada com sucesso"
 
 #: poeditor.php:217
 msgid "Please set the name of the project"
-msgstr "Setați numele proiectului"
+msgstr "Por favor, defina o nome do projeto"
 
 #: poeditor.php:224
 msgid "Project creation failed: %s"
-msgstr "Crearea proiectului eșuată: %s"
+msgstr "Falha na criação do projeto: %s"
 
 #: poeditor.php:322
 msgid "The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files"
-msgstr "Fișierul nu a putut fi creat. Verificați ca directorul să aibă drepturi de scriere setate și că serviciul de hosting vă permite scrierea"
+msgstr "O arquivo não pôde ser criado. Por favor, certifique-se que a pasta é gravável, e sua configuração de host permite que você escreva arquivos"
 
 #: poeditor.php:638
 msgid "The plugin has been reset successfully"
-msgstr "Pluginul a fost resetat cu succes"
+msgstr "O plugin foi reiniciado com sucesso"
 
 #: views/index.php:382
 msgid "The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)"
-msgstr "Directorul sau fișierul nu are drepturi de scriere (din această cauză nu se poate actualiza cu informații de la poeditor.com)"
+msgstr "A pasta ou arquivo não são graváveis (portanto não seremos capazes de atualizar os arquivos com as informações do poeditor.com)"
 
 #: views/index.php:287
 msgid "Search for location"
-msgstr "Căutați după locație"
+msgstr "Pesquisar por localização"
 
 #: views/index.php:288
 msgid "Search for file name"
-msgstr "Căutați după nume fișier"
+msgstr "Pesquisar pelo nome do arquivo"
 
 #: views/index.php:76
 msgid "Import .po and .mo files from POEditor"
-msgstr "Importă din POEditor atât fișierul .po cât si .mo"
+msgstr "Importar arquivos .po e .mo do POEditor"
 
 #: views/index.php:77
 msgid "Export terms to POEditor"
-msgstr "Exportă termenii în POEditor"
+msgstr "Termos de exportação para POEditor"
 
 #: views/index.php:78
 msgid "Export terms and translations to POEditor, overwriting exiting translations"
-msgstr "Exportă termenii în POEditor suprascriind traducerile existente"
+msgstr "Exportação de termos e traduções para POEditor, substituindo a saída das traduções"
 
 #: views/index.php:110
 msgid "Import .po and .mo files from POEditor for all languages"
-msgstr "Importă din POEditor atât fișierele .po cât si .mo pentru toate limbile"
+msgstr "Importar arquivos .po e .mo de POEditor para todos os idiomas"
 
 #: views/index.php:111
 msgid "Export terms to POEditor from all language files"
-msgstr "Exportă termenii în POEditor pentru toate limbile"
+msgstr "Termos de exportação para POEditor de todos os arquivos de idioma"
 
 #: views/index.php:112
 msgid "Export terms and translations to POEditor from all language files, overwriting exiting translations"
-msgstr "Exportă termenii si traducerile în POEditor pentru toate limbile, suprascriind traducerile existente"
+msgstr "Exportação de termos e traduções para POEditor de todos os arquivos de idioma, substituindo a saída das traduções"
 

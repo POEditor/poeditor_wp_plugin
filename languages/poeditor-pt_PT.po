@@ -11,13 +11,11 @@ msgstr ""
 msgid "Change your POEditor API Key"
 msgstr "Altere sua Chave da API do POEditor"
 
-#: views/changeApiKey.php:12
-#: views/index_nokey.php:14
+#: views/changeApiKey.php:12 views/index_nokey.php:14
 msgid "POEditor API KEY"
 msgstr "Chave da API do POEditor"
 
-#: views/changeApiKey.php:16
-#: views/index.php:8
+#: views/changeApiKey.php:16 views/index.php:8
 msgid "Change API Key"
 msgstr "Mudar Chave da API"
 
@@ -25,33 +23,27 @@ msgstr "Mudar Chave da API"
 msgid "Reset plugin"
 msgstr "Redefinir plugin"
 
-#: views/index.php:17
-#: views/index.php:19
+#: views/index.php:17 views/index.php:19
 msgid "Refresh online projects list"
 msgstr "Recarregar lista de projetos online"
 
-#: views/index.php:33
-#: views/index.php:134
+#: views/index.php:33 views/index.php:137
 msgid "Project"
 msgstr "Projeto"
 
-#: views/index.php:36
-#: views/index.php:137
+#: views/index.php:36 views/index.php:140
 msgid "Language"
 msgstr "Idioma"
 
-#: views/index.php:39
-#: views/index.php:140
+#: views/index.php:39 views/index.php:143
 msgid "Progress"
 msgstr "Progresso"
 
-#: views/index.php:42
-#: views/index.php:143
+#: views/index.php:42 views/index.php:146
 msgid "Assigned file"
 msgstr "Arquivo definino"
 
-#: views/index.php:45
-#: views/index.php:146
+#: views/index.php:45 views/index.php:149
 msgid "Actions"
 msgstr "Ações"
 
@@ -83,73 +75,60 @@ msgstr "Importar tudo"
 msgid "Export all"
 msgstr "Exportar tudo"
 
-#: views/index.php:168
-#: views/index.php:170
+#: views/index.php:171 views/index.php:173
 msgid "Rescan for language files"
 msgstr "Buscar novamente arquivo de idioma"
 
-#: views/index.php:179
-#: views/index.php:240
-#: views/index.php:274
+#: views/index.php:182 views/index.php:243 views/index.php:277
 msgid "Location"
 msgstr "Localização"
 
-#: views/index.php:182
-#: views/index.php:243
-#: views/index.php:277
+#: views/index.php:185 views/index.php:246 views/index.php:280
 msgid "File"
 msgstr "Arquivo"
 
-#: views/index.php:185
-#: views/index.php:246
+#: views/index.php:188 views/index.php:249
 msgid "Last changed"
 msgstr "Última modificação"
 
-#: views/index.php:255
-#: views/index.php:372
+#: views/index.php:258 views/index.php:375
 msgid "No language files found yet. Scan now"
 msgstr "Nenhum arquivo de idioma encontrado ainda. Buscar agora."
 
-#: views/index.php:263
+#: views/index.php:266
 msgid "Assign a local file to a POEditor project language"
 msgstr "Definir um arquivo local para um idioma de projeto POEditor"
 
-#: views/index.php:304
-#: views/index.php:322
-#: views/index.php:340
-#: views/index.php:361
+#: views/index.php:307 views/index.php:325 views/index.php:343
+#: views/index.php:364
 msgid "Select"
 msgstr "Escolher"
 
-#: views/index.php:318
+#: views/index.php:321
 msgid "Add new"
 msgstr "Adicionar novo"
 
-#: views/index.php:336
-#: views/index.php:357
+#: views/index.php:339 views/index.php:360
 msgid "Add location manually"
 msgstr "Adicionar local manualmente"
 
-#: views/index.php:346
-#: views/index.php:367
+#: views/index.php:349 views/index.php:370
 msgid "Example"
 msgstr "Exemplo"
 
-#: views/index.php:384
+#: views/index.php:387
 msgid "Are you sure you want to reset the plugin?"
 msgstr "Tem certeza que deseja redefinir e limpar o plugin?"
 
-#: views/index.php:387
+#: views/index.php:390
 msgid "This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s"
 msgstr "Isto irá excluir todas as definições de arquivos locais e desvinculará sua instalação do WordPress de sua conta em %s"
 
-#: views/index.php:104
-#: views/index.php:376
-#: views/index.php:389
+#: views/index.php:104 views/index.php:379 views/index.php:392
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: views/index.php:390
+#: views/index.php:393
 msgid "Reset"
 msgstr "Redefinir"
 
@@ -157,33 +136,31 @@ msgstr "Redefinir"
 msgid "No API key set"
 msgstr "Chave API não informada"
 
-#: poeditor.php:430
+#: poeditor.php:432
 msgid "The language file %1$s for %2$s was successfully synced"
 msgstr "O arquivo de idioma %1$s para %2$s foi sincronizado."
 
-#: poeditor.php:433
+#: poeditor.php:435
 msgid "The language file %1$s for %2$s was successfully uploaded to POEditor.com"
 msgstr "O arquivo de idioma %1$s para %2$s foi enviado para POEditor.com."
 
-#: poeditor.php:437
+#: poeditor.php:439
 msgid "There was a problem with the request for %1$s: %2$s"
 msgstr "Ocorreu um problema com sua solicitação para %1$s: %2$s"
 
-#: poeditor.php:507
+#: poeditor.php:509
 msgid "The language file %1$s for %2$s was successfully imported from POEditor.com"
 msgstr "O arquivo de idioma %1$s para %2$s foi importado de POEditor.com."
 
-#: poeditor.php:317
-#: poeditor.php:514
+#: poeditor.php:319 poeditor.php:516
 msgid "The %s folder is not writable. Please make it writable and try again"
 msgstr "A pasta %s não tem permissões de escrita. Por favor, mude as permissões e tente novamente"
 
-#: poeditor.php:518
-#: poeditor.php:521
+#: poeditor.php:520 poeditor.php:523
 msgid "The %s file cannot be overwritten. Please make it writable and try again"
 msgstr "O arquivo %s não pode ser sobrescrito. Por favor, mude as permissões do arquivo e tente novamente"
 
-#: poeditor.php:525
+#: poeditor.php:527
 msgid "There was a problem importing the language file from POEditor.com"
 msgstr "Ocorreu um problema ao importar o arquivo de idioma de POEditor.com."
 
@@ -219,7 +196,7 @@ msgstr "Você quer mesmo fazer o upload de todas as definições para %s em POEd
 msgid "Sync all"
 msgstr "Sincronizar tudo"
 
-#: views/index.php:379
+#: views/index.php:382
 msgid "This folder is not writable"
 msgstr "Esta pasta não pode ser escrita"
 
@@ -243,61 +220,80 @@ msgstr "Buscando por arquivos de idioma, Por favor aguarde"
 msgid "POEditor translations"
 msgstr "Traduções POEditor"
 
-#: views/index.php:123
-#: views/index.php:126
-#: views/index.php:156
-#: views/index.php:159
+#: views/index.php:126 views/index.php:129 views/index.php:159
+#: views/index.php:162
 msgid "Create project"
 msgstr "Criar projeto"
 
-#: views/index.php:166
+#: views/index.php:169
 msgid "Local language files"
 msgstr "Arquivos de Idioma locais"
 
-#: views/index.php:154
+#: views/index.php:157
 msgid "Found no projects in your POEditor.com account."
 msgstr "Nenhum projeto foi encontrado em sua conta POEditor.com."
 
-#: poeditor.php:104
+#: poeditor.php:106
 msgid "The API Key was succesfully changed"
 msgstr "A Chame da API foi modificada."
 
-#: poeditor.php:119
-#: poeditor.php:132
-#: poeditor.php:208
-#: poeditor.php:240
+#: poeditor.php:121 poeditor.php:134 poeditor.php:210 poeditor.php:242
 msgid "The API Key you set is invalid. Please try again"
 msgstr "A chave da API informada é inválida. Por favor, tete novamente."
 
-#: poeditor.php:141
+#: poeditor.php:143
 msgid "The language was successfully added"
 msgstr "O idioma foi adicionado com sucesso"
 
-#: poeditor.php:215
+#: poeditor.php:217
 msgid "Please set the name of the project"
 msgstr "Por favor, informe o nome do projeto"
 
-#: poeditor.php:222
+#: poeditor.php:224
 msgid "Project creation failed: %s"
 msgstr "Falha so criar projeto: %s"
 
-#: poeditor.php:320
+#: poeditor.php:322
 msgid "The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files"
 msgstr "O arquivo não pôde ser criado. Por favor, certifique-se que a pasta tem permissões de escrita e que as configurações do servidor permitem que você crie arquivos."
 
-#: poeditor.php:636
+#: poeditor.php:638
 msgid "The plugin has been reset successfully"
 msgstr "O plugin foi redefinido com sucesso"
 
-#: views/index.php:379
+#: views/index.php:382
 msgid "The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)"
 msgstr "A pasta ou arquivo não tem permissão de escrita (portanto não foi possível atualizar os arquivos com informações de POEditor.com)"
 
-#: views/index.php:284
+#: views/index.php:287
 msgid "Search for location"
 msgstr "Buscar por localização"
 
-#: views/index.php:285
+#: views/index.php:288
 msgid "Search for file name"
 msgstr "Buscar por nome do arquivo"
+
+#: views/index.php:76
+msgid "Import .po and .mo files from POEditor"
+msgstr "Importar arquivos .po e .mo do POEditor"
+
+#: views/index.php:77
+msgid "Export terms to POEditor"
+msgstr "Termos de exportação para POEditor"
+
+#: views/index.php:78
+msgid "Export terms and translations to POEditor, overwriting exiting translations"
+msgstr "Exportação de termos e traduções para POEditor, substituindo a saída das traduções"
+
+#: views/index.php:110
+msgid "Import .po and .mo files from POEditor for all languages"
+msgstr "Importar arquivos .po e .mo de POEditor para todos os idiomas"
+
+#: views/index.php:111
+msgid "Export terms to POEditor from all language files"
+msgstr "Termos de exportação para POEditor de todos os arquivos de idioma"
+
+#: views/index.php:112
+msgid "Export terms and translations to POEditor from all language files, overwriting exiting translations"
+msgstr "Exportação de termos e traduções para POEditor de todos os arquivos de idioma, substituindo a saída das traduções"
 
