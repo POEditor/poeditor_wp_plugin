@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.9
+	Version: 0.9.10
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
@@ -363,34 +363,6 @@
  		}
 
  		/**
-		 * function import_all
-		 * 
-		 * This method is used to bulk upload local language files with the export method
-		 */
- 		function export_all($projectId = '', $redirect = true) {
-			
- 			$projectId = !empty($projectId) ? $projectId : $_GET['projectId'];
- 			$type = !empty($type) ? $type : $_GET['type'];
- 			
-			$projects    = unserialize(get_option('poeditor_projects'));
-			$assingments = unserialize(get_option('poeditor_assingments'));
-			
-			$success = true;
-			
-			foreach($projects as $project){
-				
-				//if current project and a file has been assigned
-				if($projectId == $project['id'] && isset($assingments[$projectId.'_'.$project['code']])){
-					$success = $success && $this->export($type, $projectId, $project['code'], false);
-				}
-			}
-			
-			if($redirect) wp_redirect(POEDITOR_PATH);
-			
-			return $success;
- 		}
-
- 		/**
 		 * function export
 		 * 
 		 * This method uploads a local file to POEditor.com
@@ -412,7 +384,8 @@
  					break;
  				
  				case 'sync':
- 					$updating  = 'definitions';
+ 					$updating  = 'terms';
+ 					$sync  = '1';
 		 			$overwrite = 1;
  					break;	
  			}
@@ -425,7 +398,7 @@
 			
 			$success = false;
 			
-			$upload = $this->api->upload($projectId, $path, $language, $overwrite, $updating);
+			$upload = $this->api->upload($projectId, $path, $language, $overwrite, $updating, $sync);
 
 			if( $upload->response->status == 'success' ) {
 				if( $type == 'sync' ) {

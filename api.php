@@ -68,8 +68,8 @@
 			return $this->_makeAPIRequest('add_language', array('id' => $project, 'language' => $language));
 		}
 
-		function upload($projectId, $path, $language, $overwrite, $updating) {
-			$upload = $this->_makeAPIRequest('upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite));
+		function upload($projectId, $path, $language, $overwrite, $updating, $sync) {
+			$upload = $this->_makeAPIRequest('upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite, 'sync_terms' => $sync));
 
 			return $upload;
 		}
