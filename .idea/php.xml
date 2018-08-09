@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter home="vagrant://C:/vms/basic/usr/bin/php" id="b13a6007-c0b7-4b3b-9d13-d609a95b76ca" name="Remote PHP 5.6 (project level)" debugger_id="php.debugger.XDebug">
+        <remote_data VAGRANT_FOLDER="C:/vms/basic" INTERPRETER_PATH="/usr/bin/php" HELPERS_PATH="/home/vagrant/.phpstorm_helpers" INITIALIZED="false" VALID="true" />
+      </interpreter>
+    </interpreters>
+  </component>
+  <component name="PhpUnit">
+    <phpunit_settings>
+      <PhpUnitSettings />
+      <phpunit_by_interpreter interpreter_id="b13a6007-c0b7-4b3b-9d13-d609a95b76ca" load_method="PHPUNIT_PHAR" bootstrap_file_path="/var/www/poeditor/tests/resources/test_init.php" configuration_file_path="/var/www/poeditor/tests/phpunit.xml" custom_loader_path="" phpunit_phar_path="/var/www/phpunit.phar" use_bootstrap_file="true" use_configuration_file="true" />
+    </phpunit_settings>
+  </component>
+</project>

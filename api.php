@@ -1,7 +1,7 @@
 <?php
 	class POEditor_API {
 
-		private $host = 'https://poeditor.com/api/';
+		private $api_url = 'https://api.poeditor.com/v2/';
 		public $apiKey;
 
 		function __construct() {
@@ -10,9 +10,11 @@
 
 		//makes a test request to see if the API key is correct
 		function validateAPIKey() {
-			$check = $this->_makeAPIRequest('available_languages');
+			$check = $this->_makeAPIRequest('languages/available');
 
-			if( $check->response->status == 'success' ) return true;
+			if( $check->response->status == 'success' ) {
+			    return true;
+            }
 			return false;
 		}
 
@@ -23,17 +25,17 @@
 
 		//gets a list of online projects
 		function getProjects() {
-			$projects_list = $this->_makeAPIRequest('list_projects');
+			$projects_response = $this->_makeAPIRequest('projects/list');
 
 			$projects = array();
 
-			if( $projects_list ) {
-				foreach ($projects_list->list AS $project) {
+			if($projects_response ) {
+				foreach ($projects_response->result->projects AS $project) {
 					//get each project's details
-					$project_info = $this->_makeAPIRequest('list_languages', array('id' => $project->id));
+					$project_info = $this->_makeAPIRequest('languages/list', array('id' => $project->id));
 
-					if( !empty($project_info->list) ) {
-						foreach ($project_info->list as $language) {
+					if( !empty($project_info->result) ) {
+						foreach ($project_info->result->languages as $language) {
 							$project_item = array('name' => $project->name, 'id' => $project->id, 'language' => $language->name, 'code' => $language->code, 'percentage' => $language->percentage);	
 							$projects[]   = $project_item;
 						}
@@ -52,11 +54,13 @@
 
 		//get a list of all languages
 		function getLanguages() {
-			$languages_list = $this->_makeAPIRequest('available_languages');
+			$languages_list_response = $this->_makeAPIRequest('languages/available');
 
-			if( $languages_list ) {
-				$languages = (array) $languages_list->list;
-				$languages = array_flip($languages);
+			if(count($languages_list_response->result->languages)) {
+				$languages = [];
+                foreach ($languages_list_response->result->languages as $lang) {
+                    $languages[$lang->code] = $lang->name;
+				};
 
 				return $languages;
 			}
@@ -65,7 +69,7 @@
 		}
 
 		function addLanguage($project, $language) {
-			return $this->_makeAPIRequest('add_language', array('id' => $project, 'language' => $language));
+			return $this->_makeAPIRequest('languages/add', array('id' => $project, 'language' => $language));
 		}
 
 		function upload($projectId, $path, $language, $overwrite, $updating, $sync) {
@@ -80,9 +84,9 @@
 			return $download;
 		}
 
-		private function _makeAPIRequest($action, $data = array()) {
+		private function _makeAPIRequest($endpoint, $data = array()) {
 
-			$request_meta = array('action' => $action, 'api_token' => $this->apiKey);
+			$request_meta = array('api_token' => $this->apiKey);
 
 			if( !empty($data) ) {
 				$data = array_merge($request_meta, $data);
@@ -94,7 +98,7 @@
 			$ch = curl_init();
 
 			//set the url, number of POST vars, POST data
-			curl_setopt($ch, CURLOPT_URL, $this->host);
+			curl_setopt($ch, CURLOPT_URL, $this->api_url . $endpoint);
 			curl_setopt($ch, CURLOPT_POST, count($data));
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

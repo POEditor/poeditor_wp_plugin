@@ -237,7 +237,7 @@
 		 * This method creates a view to show a preloader while the projects are retrieved from POEditor.com
 		 */
  		function getProjects() {
- 			if( !$this->api->validateAPIKey() ) {
+ 			if(!$this->api->validateAPIKey()) {
  				update_option('poeditor_apikey', '');
  				$this->_setFlashMessage(__('The API Key you set is invalid. Please try again', 'poeditor') , 'error');
  				wp_redirect(POEDITOR_PATH);
