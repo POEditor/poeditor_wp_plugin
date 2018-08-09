@@ -464,6 +464,7 @@
 		jQuery("#assignFileLanguageCode").val(language);
 
 		jQuery("div#assignFile").fadeIn();
+		jQuery("div#assignFile").scrollIntoView();
 		jQuery('#location_search').select().focus();
 		
 		e.preventDefault();
@@ -481,6 +482,7 @@
 	jQuery('.poeditorReset').on('click', function(e){
 		
 		jQuery("div#resetConfirm").fadeIn();
+		jQuery("div#resetConfirm").scrollIntoView();
 		e.preventDefault();
 	});
 

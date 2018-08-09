@@ -302,8 +302,8 @@
  		function assignFile() {
 
  			$path = base64_decode($_GET['path']);
+            $projectId = $_GET['project'];
 
- 			$language = $_GET['path'];
  			//if the file doesn't exist, try to create it
  			if( !file_exists( $path ) ) {
  				$newFile = 'msgid ""
@@ -320,7 +320,7 @@
 						wp_redirect(POEDITOR_PATH);
 					} else {
 						$this->_setFlashMessage(__('The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files', 'poeditor'), 'error');
-						wp_redirect(POEDITOR_PATH);
+						wp_redirect(POEDITOR_PATH . '#project-' . $projectId);
 					}
 
 					exit();
@@ -329,7 +329,7 @@
 
  			//update assingments
 			$language  = $_GET['language'];
-			$projectId = $_GET['project'];
+
 
 			$key = $projectId . '_' . $language;
 
