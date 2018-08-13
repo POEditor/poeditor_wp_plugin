@@ -20,7 +20,7 @@
 
 		//creats a new project on POEditor.com
 		function addProject($name) {
-			return $this->_makeAPIRequest('create_project', array('name' => $name));
+			return $this->_makeAPIRequest('projects/add', array('name' => $name));
 		}
 
 		//gets a list of online projects
@@ -31,10 +31,12 @@
 
 			if($projects_response ) {
 				foreach ($projects_response->result->projects AS $project) {
+
+
 					//get each project's details
 					$project_info = $this->_makeAPIRequest('languages/list', array('id' => $project->id));
 
-					if( !empty($project_info->result) ) {
+					if(count($project_info->result->languages)) {
 						foreach ($project_info->result->languages as $language) {
 							$project_item = array('name' => $project->name, 'id' => $project->id, 'language' => $language->name, 'code' => $language->code, 'percentage' => $language->percentage);	
 							$projects[]   = $project_item;
@@ -42,9 +44,12 @@
 					} else {
 						$project_item = array('name' => $project->name, 'id' => $project->id, 'language' => '', 'code' => '', 'percentage' => 0);
 						$projects[]   = $project_item;
+
 					}
 
+
 				}
+
 
 				return $projects;
 			}
@@ -73,16 +78,21 @@
 		}
 
 		function upload($projectId, $path, $language, $overwrite, $updating, $sync) {
-			$upload = $this->_makeAPIRequest('upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite, 'sync_terms' => $sync));
+			$upload = $this->_makeAPIRequest('projects/upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite, 'sync_terms' => $sync));
 
 			return $upload;
 		}
 
 		function download($projectId, $language, $type) {
-			$download = $this->_makeAPIRequest('export', array('id' => $projectId, 'language' => $language, 'type' => $type));
+			$download = $this->_makeAPIRequest('projects/export', array('id' => $projectId, 'language' => $language, 'type' => $type));
 
 			return $download;
 		}
+
+
+        function getProjectLanguages($project) {
+            return $this->_makeAPIRequest('languages/list', array('id' => $project));
+        }
 
 		private function _makeAPIRequest($endpoint, $data = array()) {
 

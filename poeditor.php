@@ -64,7 +64,6 @@
 		 * This method creates a view for the main page of the plugin
 		 */
  		function index() {
-
  			if( isset($_GET['do']) ) {
  				$do = $_GET['do'];
  				if( method_exists($this, $do) ) $this->$do();
@@ -129,11 +128,7 @@
 		 * This method adds a new language to an already existing project on POEditor.com
 		 */
  		function addLanguage() {
- 			if( !$this->api->validateAPIKey() ) {
- 				update_option('poeditor_apikey', '');	
- 				$this->_setFlashMessage(__('The API Key you set is invalid. Please try again', 'poeditor'), 'error');
- 				wp_redirect(POEDITOR_PATH);
- 			}
+            $this->checkApiKeyValidity();
 
  			$addLanguage = $this->api->addLanguage($_POST['project'], $_POST['language']);
 
@@ -205,11 +200,7 @@
 		 * This method creates a new project on POEditor.com
 		 */
  		function addProject() {
- 			if( !$this->api->validateAPIKey() ) {
- 				update_option('poeditor_apikey', '');
- 				$this->_setFlashMessage(__('The API Key you set is invalid. Please try again', 'poeditor'), 'error');
- 				wp_redirect(POEDITOR_PATH);
- 			}
+            $this->checkApiKeyValidity();
 
  			$name = $_POST['project'];
 
@@ -237,13 +228,9 @@
 		 * This method creates a view to show a preloader while the projects are retrieved from POEditor.com
 		 */
  		function getProjects() {
- 			if(!$this->api->validateAPIKey()) {
- 				update_option('poeditor_apikey', '');
- 				$this->_setFlashMessage(__('The API Key you set is invalid. Please try again', 'poeditor') , 'error');
- 				wp_redirect(POEDITOR_PATH);
- 			}
+            $this->checkApiKeyValidity();
 
- 			$this->_renderView('getProjects');
+            $this->_renderView('getProjects');
  		}
 
  		/**
@@ -302,8 +289,8 @@
  		function assignFile() {
 
  			$path = base64_decode($_GET['path']);
-            $projectId = $_GET['project'];
 
+ 			$language = $_GET['path'];
  			//if the file doesn't exist, try to create it
  			if( !file_exists( $path ) ) {
  				$newFile = 'msgid ""
@@ -320,7 +307,7 @@
 						wp_redirect(POEDITOR_PATH);
 					} else {
 						$this->_setFlashMessage(__('The file could not be created. Please make sure that the folder is writable and your host configuration allows you to write files', 'poeditor'), 'error');
-						wp_redirect(POEDITOR_PATH . '#project-' . $projectId);
+						wp_redirect(POEDITOR_PATH);
 					}
 
 					exit();
@@ -329,7 +316,7 @@
 
  			//update assingments
 			$language  = $_GET['language'];
-
+			$projectId = $_GET['project'];
 
 			$key = $projectId . '_' . $language;
 
@@ -474,8 +461,8 @@
 			
 			if( $download_po->response->status == 'success' && $download_mo->response->status == 'success') {
 				
-				$remoteFileContents_po = file_get_contents($download_po->item);
-				$remoteFileContents_mo = file_get_contents($download_mo->item);
+				$remoteFileContents_po = file_get_contents($download_po->result->url);
+				$remoteFileContents_mo = file_get_contents($download_mo->result->url);
 
 				if( file_put_contents($path.'.po', $remoteFileContents_po) !== FALSE && file_put_contents($path.'.mo', $remoteFileContents_mo) !== FALSE ) {
 					
@@ -500,8 +487,10 @@
 						$this->_setFlashMessage( __('There was a problem importing the language file from POEditor.com', 'poeditor'), 'error');
 					}
 				}
-				
-			} else {
+                $this->updateLanguagePercentage($projectId, $language);
+
+
+            } else {
 				
 				$this->_setFlashMessage( $response_po->response->message);
 				$this->_setFlashMessage( $response_mo->response->message);
@@ -645,7 +634,47 @@
  		function poeditorPreventOutput(){
  			ob_start();
  		}
- 	}
+
+        protected function checkApiKeyValidity()
+        {
+            if (!$this->api->validateAPIKey()) {
+                update_option('poeditor_apikey', '');
+                $this->_setFlashMessage(__('The API Key you set is invalid. Please try again', 'poeditor'), 'error');
+                wp_redirect(POEDITOR_PATH);
+            }
+        }
+
+        /**
+         * @param $projectId
+         * @param $language
+         */
+        protected function updateLanguagePercentage($projectId, $language)
+        {
+            $do_update = false;
+            $project_languages_response = $this->api->getProjectLanguages($projectId);
+            foreach ($project_languages_response->result->languages as $lang) {
+                if ($language == $lang->code) {
+                    $new_percentage = $lang->percentage;
+                }
+            }
+
+            $poeditor_projects = unserialize(get_option('poeditor_projects'));
+            $new_projects = [];
+
+            foreach ($poeditor_projects as $poeditor_project) {
+                if ($poeditor_project["id"] == $projectId && $poeditor_project["code"] == $language) {
+                    if($new_percentage != $poeditor_project['percentage']){
+                        $poeditor_project['percentage'] = $new_percentage;
+                        $do_update = true;
+                    }
+                }
+                $new_projects[] = $poeditor_project;
+            }
+            if($do_update){
+                update_option('poeditor_projects', serialize($new_projects));
+            }
+        }
+    }
 
  	$poeditor = new POEditor;
 
