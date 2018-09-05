@@ -50,6 +50,7 @@
 				<?php
 					$i = 1;
 					$j = 0;
+					$links = 0;
 
 					foreach ($projects as $project) {
 						?>
@@ -57,7 +58,7 @@
 							<td><?php echo $project['name'];?></td>
 							<td><?php echo $project['code'] ? $project['language'].' ('.$project['code'].')' : "";?></td>
 							<td><?php echo $project['code'] ? $project['percentage'] . "%" : '';?></td>
-							<td class="poeditorPadLeft">
+							<td class="poeditorPadLeft" id="project-<?php echo $project['id'] ?>">
 								<?php
 									$key = $project['id'] . '_' . $project['code'];
 									if($project['code']){
@@ -74,6 +75,7 @@
 							<td class="poeditorToRight">
 								<?php
 									if( isset($assingments[$key]) ) {
+									    $links = 1;
 										?>
 										<a href="<?php echo POEDITOR_PATH;?>&amp;do=import&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>" title="<?php _e('Import .po and .mo files from POEditor', 'poeditor'); ?>"><?php _e('Import', 'poeditor'); ?></a> | 
 										<a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;projectId=<?php echo $project['id'];?>&amp;language=<?php echo $project['code'];?>&amp;type=export" title="<?php _e('Export terms to POEditor', 'poeditor'); ?>"><?php _e('Export', 'poeditor'); ?></a> |
@@ -109,7 +111,7 @@
 								<td ></td>
 								<td ></td>
 								<td class="poeditorToRight">
-								<?php if($project['code']) { ?>
+								<?php if($project['code'] && $links) { ?>
 								<a onclick='return confirm("<?php printf(__('Do you really like to download all language files for %s from POEditor.com?', 'poeditor'), $project['name']); ?>");' href="<?php echo POEDITOR_PATH;?>&amp;do=import_all&amp;projectId=<?php echo $project['id'];?>" title="<?php _e('Import .po and .mo files from POEditor for all languages', 'poeditor'); ?>"><?php _e('Import all', 'poeditor'); ?></a>
 								<?php } ?>
 								</td>

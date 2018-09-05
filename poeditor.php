@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.10
+	Version: 0.9.2
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
@@ -459,7 +459,7 @@
 			$download_po = $this->api->download($projectId, $language, 'po');
 			$download_mo = $this->api->download($projectId, $language, 'mo');
 			
-			if( $download_po->response->status == 'success' && $download_mo->response->status == 'success') {
+			if($download_po->response->status == 'success' && $download_mo->response->status == 'success') {
 				
 				$remoteFileContents_po = file_get_contents($download_po->result->url);
 				$remoteFileContents_mo = file_get_contents($download_mo->result->url);
@@ -488,13 +488,8 @@
 					}
 				}
                 $this->updateLanguagePercentage($projectId, $language);
-
-
             } else {
-				
-				$this->_setFlashMessage( $response_po->response->message);
-				$this->_setFlashMessage( $response_mo->response->message);
-				
+				$this->_setFlashMessage($download_po->response->message);
 			}
 
 			if($redirect) wp_redirect(POEDITOR_PATH);
