@@ -98,6 +98,10 @@
 		 * This method validates and saved the POEditor.com api key
 		 */
  		function setApiKey() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'setApiKey_nonce' )) {
+                die( 'Security check failed!' );
+            }
+
  			$this->api->apiKey = $_POST['apikey'];
 
  			if( $this->api->validateAPIKey() ) {
@@ -128,6 +132,10 @@
 		 * This method adds a new language to an already existing project on POEditor.com
 		 */
  		function addLanguage() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'addLang_nonce' )) {
+                die( 'Security check failed!' );
+            }
+
             $this->checkApiKeyValidity();
 
  			$addLanguage = $this->api->addLanguage($_POST['project'], $_POST['language']);
@@ -200,6 +208,10 @@
 		 * This method creates a new project on POEditor.com
 		 */
  		function addProject() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'createProj_nonce' )) {
+                die( 'Security check failed!' );
+            }
+
             $this->checkApiKeyValidity();
 
  			$name = $_POST['project'];

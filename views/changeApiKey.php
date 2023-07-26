@@ -8,6 +8,8 @@
         <h3 class="title"><?php esc_html_e( 'Change your POEditor API Key', 'poeditor' );?></h3>
 
         <form action="<?php echo POEDITOR_PATH;?>&amp;do=setApiKey" method="post">
+            <?= wp_nonce_field('setApiKey_nonce', '_wpnonce'); ?>
+
             <p>
                 <label for="apikey"><?php esc_html_e( 'POEditor API KEY', 'poeditor' );?>:</label>
                 <input type="text" name="apikey" id="apikey" class="regular-text" value="<?php echo esc_attr($this->apiKey);?>" />
