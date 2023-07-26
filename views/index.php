@@ -193,7 +193,10 @@ wp_enqueue_style( 'poeditor-style' );
         <p><?php esc_html_e('Found no projects in your POEditor.com account.', 'poeditor'); ?></p>
 
         <a href="#addProject" class="addProjectButton button-primary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
+
         <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
+            <?= wp_nonce_field('createProj_nonce'); ?>
+
             <input type="text" name="project" id="projectNameInput">
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
         </form>

@@ -17,7 +17,7 @@
         </p>
 
         <form action="<?php echo POEDITOR_PATH;?>&amp;do=setApiKey" method="post">
-            <?= wp_nonce_field('setApiKey_nonce', '_wpnonce'); ?>
+            <?= wp_nonce_field('setApiKey_nonce'); ?>
 
             <p>
                 <label for="apikey"><?php esc_html_e( 'POEditor API KEY', 'poeditor' );?>:</label>
