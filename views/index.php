@@ -10,7 +10,7 @@ wp_enqueue_style( 'poeditor-style' );
     </div>
     <h1>
         <?php
-        echo '<img src="' . plugins_url( '_resources/img/logo.png' , __FILE__ ) . '" alt="POEditor" > ';
+        echo '<img src="' . plugins_url( '_resources/img/logo_dark.svg' , __FILE__ ) . '" alt="POEditor" > ';
         ?>
     </h1>
     <br clear="all">

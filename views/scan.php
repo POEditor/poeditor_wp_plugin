@@ -1,7 +1,7 @@
 <div class="wrap">
     <h2>
         <?php
-        echo '<img src="' . plugins_url( '_resources/img/logo.png' , __FILE__ ) . '" alt="POEditor" > ';
+        echo '<img src="' . plugins_url( '_resources/img/logo_dark.svg' , __FILE__ ) . '" alt="POEditor" > ';
         ?>
     </h2>
     <div class="tool-box" style="display: flex">

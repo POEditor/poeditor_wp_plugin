@@ -58,6 +58,16 @@
  			add_management_page( 'POEditor', 'POEditor', 'manage_options', 'poeditor', array(&$this, 'index'));
  		}
 
+
+        /**
+         * function CSRFErrorPage
+         *
+         * This method creates a view with an error message in case the CSRF token does not exist
+         */
+        function CSRFErrorPage() {
+            $this->_renderView('customErrorPage');
+        }
+
  		/**
 		 * function index
 		 * 
@@ -99,7 +109,7 @@
 		 */
  		function setApiKey() {
             if (!wp_verify_nonce( $_POST['_wpnonce'], 'setApiKey_nonce' )) {
-                die( 'Security check failed!' );
+                return $this->CSRFErrorPage();
             }
 
  			$this->api->apiKey = $_POST['apikey'];
@@ -133,7 +143,7 @@
 		 */
  		function addLanguage() {
             if (!wp_verify_nonce( $_POST['_wpnonce'], 'addLang_nonce' )) {
-                die( 'Security check failed!' );
+                return $this->CSRFErrorPage();
             }
 
             $this->checkApiKeyValidity();
@@ -209,7 +219,7 @@
 		 */
  		function addProject() {
             if (!wp_verify_nonce( $_POST['_wpnonce'], 'createProj_nonce' )) {
-                die( 'Security check failed!' );
+                return $this->CSRFErrorPage();
             }
 
             $this->checkApiKeyValidity();
