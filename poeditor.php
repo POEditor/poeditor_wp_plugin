@@ -15,6 +15,9 @@
  	class POEditor { 
 
  		private $api, $apiKey;
+         private $acceptedMethods = [
+                 'CSRFErrorPage', 'index', 'index_nokey', 'changeApiKey', 'setApiKey', 'scan', 'addLanguage', 'getProjects', 'addProjects', 'clean', 'assignFile', 'unassignFile', 'export', 'import'
+         ];
 
  		function __construct() {
  		
@@ -74,7 +77,9 @@
 		 * This method creates a view for the main page of the plugin
 		 */
  		function index() {
- 			if( isset($_GET['do']) ) {
+            $do = isset($_GET['do']) ? $_GET['do'] : '';
+
+ 			if( in_array($do, $this->acceptedMethods) ) {
  				$do = $_GET['do'];
  				if( method_exists($this, $do) ) $this->$do();
  			} else {
