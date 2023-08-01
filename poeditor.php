@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.3
+	Version: 0.9.4
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
@@ -15,6 +15,9 @@
  	class POEditor { 
 
  		private $api, $apiKey;
+         private $acceptedMethods = [
+                 'CSRFErrorPage', 'index', 'index_nokey', 'changeApiKey', 'setApiKey', 'scan', 'addLanguage', 'getProjects', 'addProjects', 'clean', 'assignFile', 'unassignFile', 'export', 'import'
+         ];
 
  		function __construct() {
  		
@@ -58,13 +61,25 @@
  			add_management_page( 'POEditor', 'POEditor', 'manage_options', 'poeditor', array(&$this, 'index'));
  		}
 
+
+        /**
+         * function CSRFErrorPage
+         *
+         * This method creates a view with an error message in case the CSRF token does not exist
+         */
+        function CSRFErrorPage() {
+            $this->_renderView('customErrorPage');
+        }
+
  		/**
 		 * function index
 		 * 
 		 * This method creates a view for the main page of the plugin
 		 */
  		function index() {
- 			if( isset($_GET['do']) ) {
+            $do = isset($_GET['do']) ? $_GET['do'] : '';
+
+ 			if( in_array($do, $this->acceptedMethods) ) {
  				$do = $_GET['do'];
  				if( method_exists($this, $do) ) $this->$do();
  			} else {
@@ -98,6 +113,10 @@
 		 * This method validates and saved the POEditor.com api key
 		 */
  		function setApiKey() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'setApiKey_nonce' )) {
+                return $this->CSRFErrorPage();
+            }
+
  			$this->api->apiKey = $_POST['apikey'];
 
  			if( $this->api->validateAPIKey() ) {
@@ -128,6 +147,10 @@
 		 * This method adds a new language to an already existing project on POEditor.com
 		 */
  		function addLanguage() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'addLang_nonce' )) {
+                return $this->CSRFErrorPage();
+            }
+
             $this->checkApiKeyValidity();
 
  			$addLanguage = $this->api->addLanguage($_POST['project'], $_POST['language']);
@@ -200,6 +223,10 @@
 		 * This method creates a new project on POEditor.com
 		 */
  		function addProject() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'createProj_nonce' )) {
+                return $this->CSRFErrorPage();
+            }
+
             $this->checkApiKeyValidity();
 
  			$name = $_POST['project'];

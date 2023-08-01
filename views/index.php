@@ -10,7 +10,7 @@ wp_enqueue_style( 'poeditor-style' );
     </div>
     <h1>
         <?php
-        echo '<img src="' . plugins_url( '_resources/img/logo.png' , __FILE__ ) . '" alt="POEditor" > ';
+        echo '<img src="' . plugins_url( '_resources/img/logo_dark.svg' , __FILE__ ) . '" alt="POEditor" > ';
         ?>
     </h1>
     <br clear="all">
@@ -116,6 +116,8 @@ wp_enqueue_style( 'poeditor-style' );
                             <?php $project_new_language = sprintf(__('Add language to %s', 'poeditor'), '"'.$project['name'].'"' ); ?>
                             <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo esc_html($project_new_language) ;?></a>
                             <form action="<?php echo POEDITOR_PATH;?>&amp;do=addLanguage" class="addLanguage" id="<?echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
+                                <?= wp_nonce_field('addLang_nonce'); ?>
+
                                 <select name="language">
                                     <?php
                                     foreach ($languages as $code => $language) {
@@ -156,6 +158,8 @@ wp_enqueue_style( 'poeditor-style' );
                 <td colspan="5">
                     <a href="#addProject" class="addProjectButton button-secondary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
                     <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
+                        <?= wp_nonce_field('createProj_nonce'); ?>
+
                         <input type="text" name="project" id="projectNameInput">
                         <input type="submit" name="submit" id="submit" class="button button-primary"
                                value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
@@ -189,7 +193,10 @@ wp_enqueue_style( 'poeditor-style' );
         <p><?php esc_html_e('Found no projects in your POEditor.com account.', 'poeditor'); ?></p>
 
         <a href="#addProject" class="addProjectButton button-primary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
+
         <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
+            <?= wp_nonce_field('createProj_nonce'); ?>
+
             <input type="text" name="project" id="projectNameInput">
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
         </form>
