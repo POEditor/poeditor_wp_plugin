@@ -115,9 +115,11 @@ wp_enqueue_style( 'poeditor-style' );
                     <tr>
 
                         <td colspan="2">
-                            <?php $project_new_language = sprintf(__('Add language to %s', 'poeditor'), '"'.$project['name'].'"' ); ?>
-                            <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo esc_html($project_new_language) ;?></a>
-                            <form action="<?php echo POEDITOR_PATH;?>&amp;do=addLanguage" class="addLanguage" id="<?echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
+                            <?php
+                            $msg = esc_html__('Add language to %s', 'poeditor');
+                            $project_new_language = sprintf($msg, '"'.$project['name'].'"' ); ?>
+                            <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo $project_new_language ;?></a>
+                            <form action="<?php echo POEDITOR_PATH;?>&amp;do=addLanguage" class="addLanguage" id="<?php echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
                                 <?= wp_nonce_field('addLang_nonce'); ?>
 
                                 <select name="language">
