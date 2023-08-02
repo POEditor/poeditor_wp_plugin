@@ -3,12 +3,11 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.5
+	Version: 0.9.6
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
 	*/
-	
 	
 
 
@@ -16,7 +15,7 @@
 
  		private $api, $apiKey;
          private $acceptedMethods = [
-                 'CSRFErrorPage', 'index', 'index_nokey', 'changeApiKey', 'setApiKey', 'scan', 'addLanguage', 'getProjects', 'addProjects', 'clean', 'assignFile', 'unassignFile', 'export', 'import'
+                 'CSRFErrorPage', 'index', 'index_nokey', 'changeApiKey', 'setApiKey', 'scan', 'addLanguage', 'getProjects', 'addProject', 'clean', 'assignFile', 'unassignFile', 'export', 'import', 'import_all'
          ];
 
  		function __construct() {
@@ -387,19 +386,21 @@
 		 */
  		function export( $type = '', $projectId = '', $language = '', $redirect = true ) {
 
- 			$projectId = !empty($projectId) ? $projectId : $_GET['projectId'];
- 			$language = !empty($language) ? $language : $_GET['language'];
- 			$type = !empty($type) ? $type : $_GET['type'];
+ 			$projectId = !empty($projectId) ? $projectId : (isset($_GET['projectId']) ? $_GET['projectId'] : '');
+ 			$language = !empty($language) ? $language : (isset($_GET['language']) ? $_GET['language'] : '');
+ 			$type = !empty($type) ? $type : (isset($_GET['type']) ? $_GET['type'] : '');
+
+            $updating = 'terms';
+            $sync = 0;
+            $overwrite = 0;
 
  			switch ($type) {
  				case 'export':
- 					$updating  = 'terms';
-		 			$overwrite = 0;
  					break;
  				
  				case 'sync':
- 					$updating  = 'terms';
- 					$sync  = '1';
+                    $updating = 'terms_translations';
+                    $sync = 1;
 		 			$overwrite = 1;
  					break;	
  			}
@@ -411,20 +412,25 @@
 			$languages   = unserialize(get_option('poeditor_languages'));
 			
 			$success = false;
-			
-			$upload = $this->api->upload($projectId, $path, $language, $overwrite, $updating, $sync);
 
-			if( $upload->response->status == 'success' ) {
-				if( $type == 'sync' ) {
-					$this->_setFlashMessage( sprintf(__('The language file %1$s for %2$s was successfully synced', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $languages[$language]).'</strong>', $projectId));
-					
-				} else {
-					$this->_setFlashMessage( sprintf(__('The language file %1$s for %2$s was successfully uploaded to POEditor.com', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $languages[$language]).'</strong>', $projectId));
-				}
-				$success = true;
-			} else {
-					$this->_setFlashMessage( sprintf(__('There was a problem with the request for %1$s: %2$s', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $languages[$language]).'</strong>', '<strong>'.$upload->response->message.'</strong>', $projectId), 'error');
-			}
+            $upload = $this->api->upload($projectId, $path, $language, $overwrite, $updating, $sync);
+
+            if ($upload !== null) {
+                // $upload is not null, proceed with response checks
+                if ($upload->response->status == 'success') {
+                    if ($type == 'sync') {
+                        $this->_setFlashMessage( sprintf(__('The language file %1$s for %2$s was successfully synced in POEditor.com', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $language).'</strong>', $projectId));
+                    } else {
+                        $this->_setFlashMessage( sprintf(__('The language file %1$s for %2$s was successfully uploaded to POEditor.com', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $language).'</strong>', $projectId));
+                    }
+                    $success = true;
+                } else {
+                    $this->_setFlashMessage( sprintf(__('There was a problem with the request for %1$s: %2$s', 'poeditor'), '<strong>'.(isset($languages[$language]) ? $languages[$language] : $language).'</strong>', '<strong>'.$upload->response->message.'</strong>', $projectId), 'error');
+                }
+            } else {
+                // Handle the case when $upload is null (API call failed or didn't return expected response)
+                $this->_setFlashMessage( __('There was a problem with the request. Please try again later.', 'poeditor'), 'error');
+            }
 
 			if($redirect) wp_redirect(POEDITOR_PATH);
 			

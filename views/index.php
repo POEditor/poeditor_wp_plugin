@@ -14,13 +14,15 @@ wp_enqueue_style( 'poeditor-style' );
         ?>
     </h1>
     <br clear="all">
-    <a class="button-secondary poeditorTableExtraLink" href="<?php echo POEDITOR_PATH;?>&amp;do=getProjects" title="<?php esc_attr_e( 'Update list of POEditor translation projects', 'poeditor' ); ?>">
-        <span class="buttons-icon-refresh"></span>
-        <?php esc_html_e( 'Refresh online projects list', 'poeditor' ); ?>
-    </a>
+
     <h2 class="title poeditorTableTitle">
         <?php esc_html_e('POEditor translations', 'poeditor'); ?>
     </h2>
+    <a class="button-secondary poeditorTableExtraLink" href="<?php echo POEDITOR_PATH;?>&amp;do=getProjects"
+       title="<?php esc_attr_e( 'Update list of POEditor translation projects', 'poeditor' ); ?>">
+        <span class="buttons-icon-refresh"></span>
+        <?php esc_html_e( 'Refresh online projects list', 'poeditor' ); ?>
+    </a>
 
     <br clear="all">
     <?php
@@ -208,10 +210,11 @@ wp_enqueue_style( 'poeditor-style' );
         <?php esc_html_e('Local language files', 'poeditor'); ?>
     </h2>
     <a class="button-secondary poeditorTableExtraLink" href="<?php echo POEDITOR_PATH;?>&amp;do=scan"
-       title="<?php esc_html_e( 'Search for local .po and .pot files', 'poeditor' ); ?>">
+       title="<?php esc_attr_e( 'Search for local .po and .pot files', 'poeditor' ); ?>">
         <span class="buttons-icon-refresh"></span>
         <?php esc_html_e( 'Rescan for language files', 'poeditor' ); ?>
     </a>
+
     <?php
     if( is_array($locations) && !empty( $locations) ) {
         ?>
@@ -264,8 +267,14 @@ wp_enqueue_style( 'poeditor-style' );
                         </td>
                         <td>
                             <?php
-                            $filemtime = filemtime(WP_CONTENT_DIR . $folder . $file);
-                            echo date(get_option('date_format') . ', ' . get_option('time_format'), $filemtime);
+                            $file_path = WP_CONTENT_DIR . $folder . $file;
+
+                            if(file_exists($file_path)) {
+                                $filemtime = filemtime($file_path);
+                                echo date(get_option('date_format') . ', ' . get_option('time_format'), $filemtime);
+                            } else {
+                                echo 'File not found';
+                            }
                             ?>
                         </td>
                     </tr>

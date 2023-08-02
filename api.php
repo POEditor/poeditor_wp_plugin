@@ -77,11 +77,26 @@
 			return $this->_makeAPIRequest('languages/add', array('id' => $project, 'language' => $language));
 		}
 
-		function upload($projectId, $path, $language, $overwrite, $updating, $sync) {
-			$upload = $this->_makeAPIRequest('projects/upload', array('id' => $projectId, 'language' => $language, 'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}", 'updating' => $updating, 'overwrite' => $overwrite, 'sync_terms' => $sync));
+        function upload($projectId, $path, $language, $overwrite, $updating, $sync) {
+            $upload = $this->_makeAPIRequest('projects/upload', array(
+                'id' => $projectId,
+                'language' => $language,
+                'file' => class_exists('CurlFile', false) ? new CURLFile($path, 'application/octet-stream') : "@{$path}",
+                'updating' => $updating,
+                'overwrite' => $overwrite,
+                'sync_terms' => $sync
+            ));
 
-			return $upload;
-		}
+            // Check if the API request was successful
+            if ($upload !== null && isset($upload->response)) {
+                return $upload; // API call successful, return the response
+            } else {
+                // Handle the case when API call failed or didn't return the expected response
+                // You can log the error or take appropriate action based on your requirements.
+                return (object) array('response' => (object) array('status' => 'error', 'message' => 'API call failed'));
+            }
+        }
+
 
 		function download($projectId, $language, $type) {
 			$download = $this->_makeAPIRequest('projects/export', array('id' => $projectId, 'language' => $language, 'type' => $type));
