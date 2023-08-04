@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.7
+	Version: 0.9.8
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
@@ -618,16 +618,20 @@
 		 * 
 		 * This method deletes all data that has been written by the plugin from the database
 		 */
- 		function clean() {
- 			delete_option('poeditor_apikey');
- 			delete_option('poeditor_assingments');
- 			delete_option('poeditor_projects');
- 			delete_option('poeditor_languages');
- 			delete_option('poeditor_files');
+        function clean() {
+            if (!wp_verify_nonce( $_POST['_wpnonce'], 'reset_nonce' )) {
+                return $this->CSRFErrorPage();
+            }
 
- 			$this->_setFlashMessage(__('The plugin has been reset successfully', 'poeditor'), 'updated');
- 			wp_redirect(POEDITOR_PATH);
- 		}
+            delete_option('poeditor_apikey');
+            delete_option('poeditor_assingments');
+            delete_option('poeditor_projects');
+            delete_option('poeditor_languages');
+            delete_option('poeditor_files');
+
+            $this->_setFlashMessage(__('The plugin has been reset successfully', 'poeditor'), 'updated');
+            wp_redirect(POEDITOR_PATH);
+        }
 
  		//method for hooks
  		/**
