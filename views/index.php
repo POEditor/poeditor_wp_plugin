@@ -6,6 +6,7 @@ wp_enqueue_style( 'poeditor-style' );
 <div class="wrap poeditor">
     <div id="poeditorTopLinks">
         <a class="button-secondary" href="<?php echo POEDITOR_PATH;?>&amp;do=changeApiKey"><?php esc_html_e( 'Change API Key', 'poeditor' ); ?></a>
+
         <a class="button-secondary poeditorReset" href="#reset" title="<?php esc_attr_e( 'Disconnect plugin from linked POEditor account', 'poeditor' ); ?>"><?php esc_html_e( 'Reset plugin', 'poeditor' ); ?></a>
     </div>
     <h1>
@@ -120,7 +121,7 @@ wp_enqueue_style( 'poeditor-style' );
                             $project_new_language = sprintf($msg, '"'.$project['name'].'"' ); ?>
                             <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo $project_new_language ;?></a>
                             <form action="<?php echo POEDITOR_PATH;?>&amp;do=addLanguage" class="addLanguage" id="<?php echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
-                                <?= wp_nonce_field('addLang_nonce'); ?>
+                                <?php wp_nonce_field('addLang_nonce'); ?>
 
                                 <select name="language">
                                     <?php
@@ -162,7 +163,7 @@ wp_enqueue_style( 'poeditor-style' );
                 <td colspan="5">
                     <a href="#addProject" class="addProjectButton button-secondary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
                     <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
-                        <?= wp_nonce_field('createProj_nonce'); ?>
+                        <?php wp_nonce_field('createProj_nonce'); ?>
 
                         <input type="text" name="project" id="projectNameInput">
                         <input type="submit" name="submit" id="submit" class="button button-primary"
@@ -199,7 +200,7 @@ wp_enqueue_style( 'poeditor-style' );
         <a href="#addProject" class="addProjectButton button-primary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
 
         <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
-            <?= wp_nonce_field('createProj_nonce'); ?>
+            <?php wp_nonce_field('createProj_nonce'); ?>
 
             <input type="text" name="project" id="projectNameInput">
             <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
@@ -447,17 +448,22 @@ wp_enqueue_style( 'poeditor-style' );
         <?php esc_html_e('The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)', 'poeditor'); ?>
     </p>
 
-    <div id="resetConfirm">
-        <h4>
-            <?php esc_html_e('Are you sure you want to reset the plugin?', 'poeditor'); ?>
-        </h4>
-        <p>
-            <?php $text_content = printf(__('This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s', 'poeditor'),'POEditor.com'); ?>
-            <?php echo esc_html($text_content) ?>
-        </p>
-        <a href="#cancel" class="button button-primary" id="poeditorCancelReset"><?php esc_html_e('Cancel', 'poeditor'); ?></a>
-        <a href="<?php echo POEDITOR_PATH;?>&amp;do=clean" class="button button-primary" id="poeditorProceedWithReset"><?php esc_html_e('Reset', 'poeditor'); ?></a>
-    </div>
+    <form action="<?php echo POEDITOR_PATH;?>&amp;do=clean" method="post">
+        <?php wp_nonce_field('reset_nonce'); ?>
+
+        <div id="resetConfirm">
+            <h4>
+                <?php esc_html_e('Are you sure you want to reset the plugin?', 'poeditor'); ?>
+            </h4>
+            <p>
+                <?php $text_content = printf(__('This will delete all your local file assignments and it will detach your Wordpress installation from you account on %s', 'poeditor'),'POEditor.com'); ?>
+                <?php echo esc_html($text_content) ?>
+            </p>
+            <a href="#cancel" class="button button-primary" id="poeditorCancelReset"><?php esc_html_e('Cancel', 'poeditor'); ?></a>
+
+            <button type="submit" class="button button-primary" id="poeditorProceedWithReset"><?php esc_html_e('Reset', 'poeditor'); ?></button>
+        </div>
+    </form>
 </div>
 <script src="<?php echo plugins_url( '_resources/js/jquery.base64.min.js' , __FILE__ );?>"></script>
 <script>
