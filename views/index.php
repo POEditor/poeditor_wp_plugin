@@ -113,6 +113,7 @@ wp_enqueue_style( 'poeditor-style' );
                 if( !isset($projects[$j+1]['id']) || $project['id'] != $projects[$j+1]['id'] ) {
                     ?>
                     <tr>
+
                         <td colspan="2">
                             <?php
                             $msg = __('Add language to %s', 'poeditor');
@@ -347,7 +348,7 @@ wp_enqueue_style( 'poeditor-style' );
                     foreach ($files as $file) {
                         ?>
                         <tr class="search-row<?php if( $i % 2 == 0 ) echo  ' alternate';?>">
-                            <td><?php echo esc_html($i);?></td>
+                            <td><?php echo $i;?></td>
                             <td valign="top" class="location-file">
                                 <?php
                                 echo esc_html($folder) .'<span class="hidden">'.strtolower(esc_html($folder)).'</span>';
@@ -372,10 +373,10 @@ wp_enqueue_style( 'poeditor-style' );
                                 </td>
                                 <td>
                                     <?php esc_html_e('Add new', 'poeditor');?>:
-                                    <input type="text" placeholder="filename.po" name="newFilename" class="all-options" id="addNewSelect_<?php echo esc_attr($i . '_' . $j);?>">
+                                    <input type="text" placeholder="filename.po" name="newFilename" class="all-options" id="addNewSelect_<?php echo $i . '_' . $j;?>">
                                 </td>
                                 <td>
-                                    <a class="button-secondary selectPath" folder="<?php echo esc_attr(WP_CONTENT_DIR.$folder);?>" rel="addNewSelect_<?php echo esc_attr($i . '_' . $j);?>"
+                                    <a class="button-secondary selectPath" folder="<?php echo esc_attr(WP_CONTENT_DIR.$folder);?>" rel="addNewSelect_<?php echo $i . '_' . $j;?>"
                                        href="#select" title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
                                         <?php esc_html_e( 'Select', 'poeditor' ); ?></a>
                                 </td>
