@@ -113,6 +113,7 @@ wp_enqueue_style( 'poeditor-style' );
                 if( !isset($projects[$j+1]['id']) || $project['id'] != $projects[$j+1]['id'] ) {
                     ?>
                     <tr>
+
                         <td colspan="2">
                             <?php
                             $msg = __('Add language to %s', 'poeditor');
