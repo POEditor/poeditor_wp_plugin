@@ -5,7 +5,7 @@ wp_enqueue_style( 'poeditor-style' );
 ?>
 <div class="wrap poeditor">
     <div id="poeditorTopLinks">
-        <a class="button-secondary" href="<?php echo POEDITOR_PATH;?>&amp;do=changeApiKey"><?php esc_html_e( 'Change API Key', 'poeditor' ); ?></a>
+        <a class="button-secondary" href="<?php echo esc_url(POEDITOR_PATH . '&do=changeApiKey');?>"><?php esc_html_e( 'Change API Key', 'poeditor' ); ?></a>
 
         <a class="button-secondary poeditorReset" href="#reset" title="<?php esc_attr_e( 'Disconnect plugin from linked POEditor account', 'poeditor' ); ?>"><?php esc_html_e( 'Reset plugin', 'poeditor' ); ?></a>
     </div>
@@ -14,18 +14,18 @@ wp_enqueue_style( 'poeditor-style' );
         echo '<img src="' . plugins_url( '_resources/img/logo_dark.svg' , __FILE__ ) . '" alt="POEditor" > ';
         ?>
     </h1>
-    <br clear="all">
+    <br>
 
     <h2 class="title poeditorTableTitle">
         <?php esc_html_e('POEditor translations', 'poeditor'); ?>
     </h2>
-    <a class="button-secondary poeditorTableExtraLink" href="<?php echo POEDITOR_PATH;?>&amp;do=getProjects"
+    <a class="button-secondary poeditorTableExtraLink" href="<?php echo esc_url(POEDITOR_PATH . '&do=getProjects');?>"
        title="<?php esc_attr_e( 'Update list of POEditor translation projects', 'poeditor' ); ?>">
         <span class="buttons-icon-refresh"></span>
         <?php esc_html_e( 'Refresh online projects list', 'poeditor' ); ?>
     </a>
 
-    <br clear="all">
+    <br>
     <?php
     if( is_array($projects) && !empty( $projects) ) {
         ?>
@@ -69,9 +69,8 @@ wp_enqueue_style( 'poeditor-style' );
                                 echo str_replace(WP_CONTENT_DIR, '', $assingments[$key]);
                             } else {
                                 ?>
-                                <a href="#assignFile" project="<?php echo esc_attr($project['id']);?>"
-                                   projectName="<?php echo esc_attr($project['name']);?>"
-                                   language="<?php echo esc_attr($project['code']);?>" class="assignFile">
+                                <a href="#assignFile" data-project="<?php echo esc_attr($project['id']);?>"
+                                   data-language="<?php echo esc_attr($project['code']);?>" class="assignFile">
                                     <?php esc_html_e('Assign file', 'poeditor'); ?></a>
                                 <?php
                             }
@@ -83,27 +82,27 @@ wp_enqueue_style( 'poeditor-style' );
                         if( isset($assingments[$key]) ) {
                             $links = 1;
                             ?>
-                            <a href="<?php echo POEDITOR_PATH;?>&amp;do=import&amp;
-										projectId=<?php echo esc_attr($project['id']);?>&amp;
-										language=<?php echo esc_attr($project['code']);?>"
+                            <a href="<?php echo esc_url(POEDITOR_PATH .
+                                        '&do=import&projectId=' . esc_attr($project['id']) .
+                                        '&language=' . esc_attr($project['code']));?>"
                                title="<?php esc_attr_e('Import .po and .mo files from POEditor', 'poeditor'); ?>">
                                 <?php esc_html_e('Import', 'poeditor'); ?></a> |
 
-                            <a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;
-                                        projectId=<?php echo esc_attr($project['id']);?>&amp;
-                                        language=<?php echo esc_attr($project['code']);?>&amp;type=export"
+                            <a href="<?php echo esc_url(POEDITOR_PATH .
+                            '&do=export&projectId=' . esc_attr($project['id']) .
+                            '&language=' . esc_attr($project['code']) . '&type=export');?>"
                                title="<?php esc_attr_e('Export terms to POEditor', 'poeditor'); ?>">
                                 <?php esc_html_e('Export', 'poeditor'); ?></a> |
 
-                            <a href="<?php echo POEDITOR_PATH;?>&amp;do=export&amp;
-                                        projectId=<?php echo esc_attr($project['id']);?>&amp;
-                                        language=<?php echo esc_attr($project['code']);?>&amp;type=sync"
+                            <a href="<?php echo esc_url(POEDITOR_PATH .
+                            '&do=export&projectId=' . esc_attr($project['id']) .
+                            '&language=' . esc_attr($project['code']) . '&type=sync');?>"
                                title="<?php esc_attr_e("Export terms and translations to POEditor \nOverwrites exiting translations \nDeletes obsolete terms in POEditor", 'poeditor'); ?>">
                                 <?php esc_html_e('Sync', 'poeditor'); ?></a> |
 
-                            <a href="<?php echo POEDITOR_PATH;?>&amp;do=unassignFile&amp;
-                                        projectId=<?php echo esc_attr($project['id']);?>&amp;
-                                        language=<?php echo esc_attr($project['code']);?>"
+                            <a href="<?php echo esc_url(POEDITOR_PATH .
+                            '&do=unassignFile&projectId=' . esc_attr($project['id']) .
+                            '&language=' . esc_attr($project['code']));?>"
                                title=""><?php esc_attr_e('Unassign file', 'poeditor'); ?></a>
                             <?php
                         }
@@ -114,13 +113,12 @@ wp_enqueue_style( 'poeditor-style' );
                 if( !isset($projects[$j+1]['id']) || $project['id'] != $projects[$j+1]['id'] ) {
                     ?>
                     <tr>
-
                         <td colspan="2">
                             <?php
-                            $msg = esc_html__('Add language to %s', 'poeditor');
-                            $project_new_language = sprintf($msg, '"'.$project['name'].'"' ); ?>
-                            <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo $project_new_language ;?></a>
-                            <form action="<?php echo POEDITOR_PATH;?>&amp;do=addLanguage" class="addLanguage" id="<?php echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
+                            $msg = __('Add language to %s', 'poeditor');
+                            $project_new_language = esc_html(sprintf($msg, '"'.$project['name'].'"' )); ?>
+                            <a href="#addLanguage" class="addLanguageButton button-secondary" rel="<?php echo esc_attr($project['id']);?>">+ <?php echo esc_attr($project_new_language) ;?></a>
+                            <form action="<?php echo esc_url(POEDITOR_PATH . '&do=addLanguage');?>" class="addLanguage" id="<?php echo esc_attr('addLanguage_' . $project['id']);?>" method="post">
                                 <?php wp_nonce_field('addLang_nonce'); ?>
 
                                 <select name="language">
@@ -129,11 +127,10 @@ wp_enqueue_style( 'poeditor-style' );
                                         ?>
                                         <option value="<?php echo esc_attr($code);?>"><?php echo esc_html($language);?></option>
                                         <?php
-                                    }
-                                    ?>
+                                    } ?>
                                 </select>
                                 <input type="hidden" value="<?php echo esc_attr($project['id']);?>" name="project">
-                                <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Add language', 'poeditor'); ?>">
+                                <input type="submit" name="add_language" id="add_language" class="button button-primary" value="<?php esc_attr_e('Add language', 'poeditor'); ?>">
                                 <a href="#" class="cancelAddLanguage" rel="<?php echo esc_attr($project['id']);?>"><?php esc_html_e('Cancel', 'poeditor'); ?></a>
                             </form>
                         </td>
@@ -141,10 +138,13 @@ wp_enqueue_style( 'poeditor-style' );
                         <td ></td>
                         <td class="poeditorToRight">
                             <?php if($project['code'] && $links) { ?>
-                                <?php $import_lang = printf(__('Do you really like to download all language files for %s from POEditor.com?', 'poeditor'), $project['name']); ?>
-                                <a onclick='return confirm("<?php echo esc_html($import_lang); ?>");'
-                                   href="<?php echo POEDITOR_PATH;?>&amp;do=import_all&amp;
-                                   projectId=<?php echo esc_attr($project['id']);?>"
+                                <?php
+                                $msg = __('Do you really like to download all language files for %s from POEditor.com?', 'poeditor');
+                                $import_lang = esc_html(sprintf($msg, $project['name'])); ?>
+                                <a onclick="return confirm('<?php echo esc_attr($import_lang); ?>');"
+                                   href="<?php echo esc_url(POEDITOR_PATH .
+                                   '&do=import_all&projectId=' .
+                                   esc_attr($project['id']));?>"
                                    title="<?php esc_attr_e('Import .po and .mo files from POEditor for all languages', 'poeditor'); ?>">
                                     <?php esc_html_e('Import all', 'poeditor'); ?></a>
                             <?php } ?>
@@ -162,11 +162,11 @@ wp_enqueue_style( 'poeditor-style' );
             <tr>
                 <td colspan="5">
                     <a href="#addProject" class="addProjectButton button-secondary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
-                    <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
+                    <form action="<?php echo esc_url(POEDITOR_PATH . '&do=addProject');?>" class="addProject" method="post" id="create-form">
                         <?php wp_nonce_field('createProj_nonce'); ?>
 
-                        <input type="text" name="project" id="projectNameInput">
-                        <input type="submit" name="submit" id="submit" class="button button-primary"
+                        <input type="text" name="project" id="projectNameInput" value="<?php echo esc_html(isset($_POST['project']) ? $_POST['project'] : ''); ?>">
+                        <input type="submit" name="create_proj" id="create_proj" class="button button-primary"
                                value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
                     </form>
                 </td>
@@ -199,11 +199,11 @@ wp_enqueue_style( 'poeditor-style' );
 
         <a href="#addProject" class="addProjectButton button-primary">+ <?php esc_html_e('Create project', 'poeditor'); ?></a>
 
-        <form action="<?php echo POEDITOR_PATH;?>&amp;do=addProject" class="addProject" method="post">
+        <form action="<?php echo esc_url(POEDITOR_PATH . '&do=addProject');?>" class="addProject" method="post">
             <?php wp_nonce_field('createProj_nonce'); ?>
 
-            <input type="text" name="project" id="projectNameInput">
-            <input type="submit" name="submit" id="submit" class="button button-primary" value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
+            <input type="text" name="project" id="projectNameInput" value="<?php echo esc_attr(isset($_POST['project']) ? $_POST['project'] : ''); ?>">
+            <input type="submit" name="create_proj" id="create_proj" class="button button-primary" value="<?php esc_attr_e('Create project', 'poeditor'); ?>">
         </form>
         <?php
     }
@@ -212,7 +212,7 @@ wp_enqueue_style( 'poeditor-style' );
     <h2 class="title poeditorTableTitle">
         <?php esc_html_e('Local language files', 'poeditor'); ?>
     </h2>
-    <a class="button-secondary poeditorTableExtraLink" href="<?php echo POEDITOR_PATH;?>&amp;do=scan"
+    <a class="button-secondary poeditorTableExtraLink" href="<?php echo esc_url(POEDITOR_PATH . '&do=scan');?>"
        title="<?php esc_attr_e( 'Search for local .po and .pot files', 'poeditor' ); ?>">
         <span class="buttons-icon-refresh"></span>
         <?php esc_html_e( 'Rescan for language files', 'poeditor' ); ?>
@@ -306,12 +306,10 @@ wp_enqueue_style( 'poeditor-style' );
         <?php
     } else {
         ?>
-        <br clear="both" />
-        <a class="button-secondary" href="<?php echo POEDITOR_PATH;?>&amp;do=scan" title="<?php esc_attr_e( 'No language files found yet. Scan now', 'poeditor' ); ?>">
+        <br/>
+        <a class="button-secondary" href="<?php echo esc_url(POEDITOR_PATH . '&do=scan');?>" title="<?php esc_attr_e( 'No language files found yet. Scan now', 'poeditor' ); ?>">
             <?php esc_html_e( 'No language files found yet. Scan now', 'poeditor' ); ?></a>
-        <?php
-    }
-    ?>
+        <?php } ?>
     <div id="assignFile">
         <input type="hidden" name="project" id="assignFileProjectId" value="0">
         <input type="hidden" name="language" id="assignFileLanguageCode" value="">
@@ -339,7 +337,7 @@ wp_enqueue_style( 'poeditor-style' );
                     <td></td>
                     <td><input type="text" id="location_search" class="file-search" placeholder="<?php esc_html_e('Search for location', 'poeditor'); ?>"></td>
                     <td><input type="text" id="file_search" class="file-search" placeholder="<?php esc_html_e('Search for file name', 'poeditor'); ?>"></td>
-                    <td></th>
+                    <td></td>
                 </tr>
                 <?php
                 $i = 1;
@@ -349,13 +347,13 @@ wp_enqueue_style( 'poeditor-style' );
                     foreach ($files as $file) {
                         ?>
                         <tr class="search-row<?php if( $i % 2 == 0 ) echo  ' alternate';?>">
-                            <td><?php echo $i;?></td>
+                            <td><?php echo esc_html($i);?></td>
                             <td valign="top" class="location-file">
                                 <?php
-                                echo $folder.'<span class="hidden">'.strtolower($folder).'</span>';
+                                echo esc_html($folder) .'<span class="hidden">'.strtolower(esc_html($folder)).'</span>';
                                 ?>
                             </td>
-                            <td class="name-file"><?php echo $file.'<span class="hidden">'.strtolower($file).'</span>';?></td>
+                            <td class="name-file"><?php echo esc_html($file) .'<span class="hidden">'.strtolower(esc_html($file)).'</span>';?></td>
                             <td>
                                 <a class="button-secondary hasPath selectPath" rel="<?php echo base64_encode(WP_CONTENT_DIR.$folder.$file);?>"
                                    href="#select" title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
@@ -374,10 +372,10 @@ wp_enqueue_style( 'poeditor-style' );
                                 </td>
                                 <td>
                                     <?php esc_html_e('Add new', 'poeditor');?>:
-                                    <input type="text" placeholder="filename.po" name="newFilename" class="all-options" id="addNewSelect_<?php echo $i . '_' . $j;?>">
+                                    <input type="text" placeholder="filename.po" name="newFilename" class="all-options" id="addNewSelect_<?php echo esc_attr($i . '_' . $j);?>">
                                 </td>
                                 <td>
-                                    <a class="button-secondary selectPath" folder="<?php echo WP_CONTENT_DIR.$folder;?>" rel="addNewSelect_<?php echo $i . '_' . $j;?>"
+                                    <a class="button-secondary selectPath" folder="<?php echo esc_attr(WP_CONTENT_DIR.$folder);?>" rel="addNewSelect_<?php echo esc_attr($i . '_' . $j);?>"
                                        href="#select" title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
                                         <?php esc_html_e( 'Select', 'poeditor' ); ?></a>
                                 </td>
@@ -397,8 +395,8 @@ wp_enqueue_style( 'poeditor-style' );
                         <input type="text" name="newFilename" class="regular-text" id="addNewSelect_0_0">
                     </td>
                     <td>
-                        <a class="button-secondary selectPath" rel="addNewSelect_0_0" folder="<?php echo WP_CONTENT_DIR;?>"
-                           href="<?php echo POEDITOR_PATH;?>&amp;do=scan" title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
+                        <a class="button-secondary selectPath" rel="addNewSelect_0_0" folder="<?php echo esc_attr(WP_CONTENT_DIR);?>"
+                           href="<?php echo esc_url(POEDITOR_PATH . '&do=scan');?>" title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
                             <?php esc_html_e( 'Select', 'poeditor' ); ?></a>
                     </td>
                 </tr>
@@ -420,8 +418,8 @@ wp_enqueue_style( 'poeditor-style' );
                         <input type="text" name="newFilename" class="regular-text" id="addNewSelect_0_0">
                     </td>
                     <td>
-                        <a class="button-secondary selectPath" rel="addNewSelect_0_0" folder="<?php echo WP_CONTENT_DIR;?>"
-                           href="<?php echo POEDITOR_PATH;?>&amp;do=scan"
+                        <a class="button-secondary selectPath" rel="addNewSelect_0_0" folder="<?php echo esc_attr(WP_CONTENT_DIR);?>"
+                           href="<?php echo esc_url(POEDITOR_PATH . '&do=scan');?>"
                            title="<?php esc_attr_e( 'Select', 'poeditor' ); ?>">
                             <?php esc_html_e( 'Select', 'poeditor' ); ?></a>
                     </td>
@@ -434,7 +432,7 @@ wp_enqueue_style( 'poeditor-style' );
                     </td>
                 </tr>
             </table>
-            <a class="button-secondary" href="<?php echo POEDITOR_PATH;?>&amp;do=scan"
+            <a class="button-secondary" href="<?php echo esc_url(POEDITOR_PATH . '&do=scan');?>"
                title="<?php esc_attr_e( 'No language files found yet. Scan now', 'poeditor' ); ?>">
                 <?php esc_html_e( 'No language files found yet. Scan now', 'poeditor' ); ?></a>
             <?php
@@ -448,7 +446,7 @@ wp_enqueue_style( 'poeditor-style' );
         <?php esc_html_e('The folder or file is not writable (so we are not be able to update the files with the information from poeditor.com)', 'poeditor'); ?>
     </p>
 
-    <form action="<?php echo POEDITOR_PATH;?>&amp;do=clean" method="post">
+    <form action="<?php echo esc_url(POEDITOR_PATH . '&do=clean');?>" method="post">
         <?php wp_nonce_field('reset_nonce'); ?>
 
         <div id="resetConfirm">
@@ -526,15 +524,16 @@ wp_enqueue_style( 'poeditor-style' );
     jQuery('.assignFile').on('click', function(e){
         var projectId, projectName, language;
 
-        projectId = jQuery(this).attr('project');
-        projectName = jQuery(this).attr('projectName');
-        language = jQuery(this).attr('language');
+        projectId = jQuery(this).attr('data-project');
+        projectName = jQuery(this).attr('data-projectName');
+        language = jQuery(this).attr('data-language');
+
         jQuery("#assignFileProjectId").val(projectId);
         jQuery("#assignFileProjectName").html(projectName + ' ['+language+']');
         jQuery("#assignFileLanguageCode").val(language);
 
         jQuery("div#assignFile").fadeIn();
-        jQuery("div#assignFile").scrollIntoView();
+        jQuery("div#assignFile").get(0).scrollIntoView();
         jQuery('#location_search').select().focus();
 
         e.preventDefault();
