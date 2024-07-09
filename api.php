@@ -1,7 +1,7 @@
 <?php
 	class POEditor_API {
 
-		private $api_url = 'https://api.poeditor.com/v2/';
+		private string $api_url = 'https://api.poeditor.com/v2/';
 		public $apiKey;
 
 		function __construct() {
@@ -9,7 +9,8 @@
 		}
 
 		//makes a test request to see if the API key is correct
-		function validateAPIKey() {
+		function validateAPIKey(): bool
+        {
 			$check = $this->_makeAPIRequest('languages/available');
 
 			if( $check->response->status == 'success' ) {
@@ -18,38 +19,39 @@
 			return false;
 		}
 
-		//creats a new project on POEditor.com
+		//creates a new project on POEditor.com
 		function addProject($name) {
 			return $this->_makeAPIRequest('projects/add', array('name' => $name));
 		}
 
 		//gets a list of online projects
-		function getProjects() {
+		function getProjects(): false|array
+        {
 			$projects_response = $this->_makeAPIRequest('projects/list');
 
 			$projects = array();
 
-			if($projects_response ) {
-				foreach ($projects_response->result->projects AS $project) {
-
-
+			if($projects_response && isset($projects_response->result->projects)) {
+				foreach ($projects_response->result->projects as $project) {
 					//get each project's details
 					$project_info = $this->_makeAPIRequest('languages/list', array('id' => $project->id));
 
-					if(count($project_info->result->languages)) {
+					if($project_info && isset($project_info->result->languages) && count($project_info->result->languages)) {
 						foreach ($project_info->result->languages as $language) {
 							$project_item = array('name' => $project->name, 'id' => $project->id, 'language' => $language->name, 'code' => $language->code, 'percentage' => $language->percentage);	
 							$projects[]   = $project_item;
 						}
 					} else {
-						$project_item = array('name' => $project->name, 'id' => $project->id, 'language' => '', 'code' => '', 'percentage' => 0);
-						$projects[]   = $project_item;
-
-					}
-
-
-				}
-
+                        $project_item = array(
+                            'name' => $project->name,
+                            'id' => $project->id,
+                            'language' => '',
+                            'code' => '',
+                            'percentage' => 0
+                        );
+                        $projects[] = $project_item;
+                    }
+                }
 
 				return $projects;
 			}
@@ -58,7 +60,8 @@
 		}
 
 		//get a list of all languages
-		function getLanguages() {
+		function getLanguages(): false|array
+        {
 			$languages_list_response = $this->_makeAPIRequest('languages/available');
 
 			if(count($languages_list_response->result->languages)) {
