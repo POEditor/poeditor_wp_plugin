@@ -3,7 +3,7 @@
 	Plugin Name: POEditor
 	Plugin URI: https://poeditor.com/
 	Description: This plugin will let you manage your POEditor translations directly from Wordpress via the POEditor API.
-	Version: 0.9.10
+	Version: 0.9.11
 	Author: POEditor
 	Author URI: https://poeditor.com/
 	License: GPLv2
@@ -66,7 +66,8 @@
          *
          * This method creates a view with an error message in case the CSRF token does not exist
          */
-        function CSRFErrorPage() {
+        function CSRFErrorPage(): void
+        {
             $this->_renderView('customErrorPage');
         }
 
@@ -313,6 +314,9 @@
 		 * If the file that needs to be created doesn't exist, it will be created
 		 */
  		function assignFile() {
+            if (!wp_verify_nonce( $_GET['_wpnonce'], 'assign_nonce' )) {
+                return $this->CSRFErrorPage();
+            }
 
  			$path = base64_decode($_GET['path']);
 

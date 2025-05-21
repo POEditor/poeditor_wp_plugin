@@ -314,6 +314,8 @@ wp_enqueue_style( 'poeditor-style' );
     <div id="assignFile">
         <input type="hidden" name="project" id="assignFileProjectId" value="0">
         <input type="hidden" name="language" id="assignFileLanguageCode" value="">
+        <?php wp_nonce_field('assign_nonce'); ?>
+
         <h2 class="title">
             <?php esc_html_e('Assign a local file to a POEditor project language', 'poeditor'); ?> - <span id="assignFileProjectName"></span>
         </h2>
@@ -494,10 +496,11 @@ wp_enqueue_style( 'poeditor-style' );
     });
 
     jQuery('.selectPath').on('click', function(e){
-        var projectId, language, path, path_raw, identifier, folder;
+        var projectId, language, path, path_raw, identifier, folder, csrfToken;
 
         projectId = jQuery("#assignFileProjectId").val();
         language = jQuery("#assignFileLanguageCode").val();
+        csrfToken = jQuery('#assignFile > #_wpnonce').val();
 
         if( jQuery(this).hasClass('hasPath') ) {
             path = jQuery(this).attr('rel');
@@ -517,7 +520,7 @@ wp_enqueue_style( 'poeditor-style' );
             path = jQuery.base64.encode(folder + path_raw);
         }
 
-        window.location = '<?php echo POEDITOR_PATH;?>&do=assignFile&project=' + projectId + '&language='+language+'&path=' + path;
+        window.location = '<?php echo POEDITOR_PATH;?>&do=assignFile&project=' + projectId + '&language='+language+'&path=' + path + '&_wpnonce=' + csrfToken;
 
         e.preventDefault();
     });
